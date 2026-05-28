@@ -16,6 +16,25 @@ export interface RosterUnit {
 }
 
 export type ItemDirection = "AD" | "AP" | "Tank" | "Flex";
+export type ItemKind = "component" | "completed";
+
+export interface ItemDef {
+  id: string;
+  nameEn: string;
+  nameKo: string;
+  kind: ItemKind;
+  directions: ItemDirection[];
+}
+
+export type AugmentTier = "silver" | "gold" | "prismatic";
+
+export interface AugmentDef {
+  id: string;
+  nameEn: string;
+  nameKo: string;
+  tier: AugmentTier;
+  type: AugmentType;
+}
 
 export type RoundCode =
   | "2-1"
@@ -62,7 +81,7 @@ export interface GameState {
   hp: number;
   boardState: BoardState;
   roster: RosterUnit[];
-  itemDirections: ItemDirection[];
+  items: string[];
   augmentChoices: AugmentChoice[];
   recentUnits: string[];
   favoriteUnits: string[];

@@ -35,10 +35,10 @@ export function SummaryHeader() {
         <span>{interest.tier}골 이자</span>
         <span>·</span>
         <span>유닛 {s.roster.length}</span>
-        {s.itemDirections.length > 0 && (
+        {s.items.length > 0 && (
           <>
             <span>·</span>
-            <span>아이템 {s.itemDirections.join("/")}</span>
+            <span>아이템 {s.items.length}</span>
           </>
         )}
         {twoStarReady > 0 && (

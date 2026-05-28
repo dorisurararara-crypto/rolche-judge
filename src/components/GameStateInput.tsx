@@ -2,7 +2,7 @@
 import { useGameStore } from "@/store/useGameStore";
 import { recommendedLevel } from "@/lib/economy";
 import { CHECKPOINTS } from "@/lib/types";
-import type { RoundCode, BoardState, ItemDirection } from "@/lib/types";
+import type { RoundCode, BoardState } from "@/lib/types";
 import { Minus, Plus } from "lucide-react";
 
 const ROUNDS: RoundCode[] = ["2-1", "2-5", "3-2", "3-5", "4-1", "4-2", "4-5", "5-1", "5-5", "6-1"];
@@ -21,13 +21,6 @@ const BOARDS: { value: BoardState; label: string }[] = [
   { value: "winStreak", label: "연승" },
   { value: "loseStreak", label: "연패" },
 ];
-const DIRS: { value: ItemDirection; label: string }[] = [
-  { value: "AD", label: "AD" },
-  { value: "AP", label: "AP" },
-  { value: "Tank", label: "탱" },
-  { value: "Flex", label: "유연" },
-];
-
 export function GameStateInput() {
   const state = useGameStore((s) => s.state);
   const setRound = useGameStore((s) => s.setRound);
@@ -36,7 +29,6 @@ export function GameStateInput() {
   const bumpGold = useGameStore((s) => s.bumpGold);
   const setHp = useGameStore((s) => s.setHp);
   const setBoardState = useGameStore((s) => s.setBoardState);
-  const toggleDir = useGameStore((s) => s.toggleItemDirection);
 
   const recLevel = recommendedLevel(state.round);
 
@@ -157,27 +149,6 @@ export function GameStateInput() {
               }`}
             >
               {b.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <div className="flex items-baseline justify-between mb-1.5">
-          <label className="text-xs text-zinc-400">아이템 방향 (강한 쪽 탭, 복수 OK)</label>
-        </div>
-        <div className="flex gap-1.5">
-          {DIRS.map((d) => (
-            <button
-              key={d.value}
-              onClick={() => toggleDir(d.value)}
-              className={`flex-1 py-2 rounded-xl text-xs font-semibold transition ${
-                state.itemDirections.includes(d.value)
-                  ? "bg-accent text-black"
-                  : "bg-surface-2 text-zinc-300"
-              }`}
-            >
-              {d.label}
             </button>
           ))}
         </div>

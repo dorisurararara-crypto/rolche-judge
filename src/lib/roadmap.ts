@@ -1,5 +1,6 @@
 import type { GameState, ItemDirection, RoundCode } from "./types";
 import { findUnit } from "./data/units";
+import { findItem } from "./data/items";
 import { computeInterest, countRoster, recommendedLevel, topCost } from "./economy";
 
 export type PlayStyle = "fast8" | "standard" | "reroll" | "undecided";
@@ -37,11 +38,24 @@ function roundIndex(r: RoundCode): number {
 }
 
 function dominantDir(state: GameState): ItemDirection | null {
-  if (state.itemDirections.length === 0) return null;
-  // AD/AP/Tank 우선, Flex 는 보조
-  const priority: ItemDirection[] = ["AD", "AP", "Tank", "Flex"];
-  for (const d of priority) if (state.itemDirections.includes(d)) return d;
-  return state.itemDirections[0];
+  if (state.items.length === 0) return null;
+  const score: Record<ItemDirection, number> = { AD: 0, AP: 0, Tank: 0, Flex: 0 };
+  for (const id of state.items) {
+    const def = findItem(id);
+    if (!def) continue;
+    // 완성 아이템 가중 2, 재료 1
+    const w = def.kind === "completed" ? 2 : 1;
+    for (const d of def.directions) score[d] += w;
+  }
+  let best: ItemDirection | null = null;
+  let max = 0;
+  (["AD", "AP", "Tank", "Flex"] as ItemDirection[]).forEach((d) => {
+    if (score[d] > max) {
+      max = score[d];
+      best = d;
+    }
+  });
+  return best;
 }
 
 function decideStyle(state: GameState): PlayStyle {
@@ -273,7 +287,7 @@ export function buildRoadmap(state: GameState): Roadmap {
   if (state.gold < 20 && roundIndex(state.round) >= 2) risks.push("골드 부족 — 리롤 자제 + 보드 정리로 이자 회복");
   if (state.roster.length > 0 && style === "fast8" && state.hp < 50)
     risks.push("Fast 8 인데 체력 낮음 — 무리하면 죽어요. 7레벨 안정화로 플랜 B");
-  if (state.itemDirections.length === 0) risks.push("아이템 방향 미입력 — 캐리 타입 추천 정확도 ↓");
+  if (state.items.length === 0) risks.push("아이템 미입력 — 캐리 타입 추천 정확도 ↓");
 
   return {
     styleLabel: styleLabel(style),

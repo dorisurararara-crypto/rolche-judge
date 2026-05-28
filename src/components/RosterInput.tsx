@@ -66,8 +66,8 @@ export function RosterInput() {
       <UnitPicker
         open={pickerOpen}
         onClose={() => setPickerOpen(false)}
-        onPick={(unitId, stars) => {
-          addUnit(unitId, stars);
+        onConfirm={(picks) => {
+          picks.forEach((p) => addUnit(p.unitId, p.stars));
           setPickerOpen(false);
         }}
         title="보유 유닛 추가"

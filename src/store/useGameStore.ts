@@ -7,11 +7,10 @@ import type {
   BoardState,
   AugmentChoice,
   UnitStars,
-  ItemDirection,
 } from "@/lib/types";
 import type { Roadmap } from "@/lib/roadmap";
 
-const STORAGE_KEY = "rolche.gameState.v2";
+const STORAGE_KEY = "rolche.gameState.v3";
 
 function freshState(): GameState {
   const now = Date.now();
@@ -22,7 +21,7 @@ function freshState(): GameState {
     hp: 64,
     boardState: "ambiguous",
     roster: [],
-    itemDirections: [],
+    items: [],
     augmentChoices: [],
     recentUnits: [],
     favoriteUnits: [],
@@ -49,8 +48,11 @@ interface Store {
   addRosterUnit: (unitId: string, stars: UnitStars) => void;
   removeRosterUnit: (instanceId: string) => void;
   cycleRosterStars: (instanceId: string) => void;
-  toggleItemDirection: (d: ItemDirection) => void;
-  setAugmentChoices: (a: AugmentChoice[]) => void;
+  addItem: (itemId: string) => void;
+  removeItem: (idx: number) => void;
+  clearItems: () => void;
+  addAugment: (a: AugmentChoice) => void;
+  removeAugment: (id: string) => void;
   setRoadmap: (r: Roadmap | undefined) => void;
   setIsPlanning: (b: boolean) => void;
   toggleFavoriteUnit: (unitId: string) => void;
@@ -96,18 +98,23 @@ export const useGameStore = create<Store>()(
           },
         })),
 
-      toggleItemDirection: (d) =>
+      addItem: (itemId) =>
+        set((s) => ({ state: { ...s.state, items: [...s.state.items, itemId], updatedAt: Date.now() } })),
+      removeItem: (idx) =>
         set((s) => ({
-          state: {
-            ...s.state,
-            itemDirections: s.state.itemDirections.includes(d)
-              ? s.state.itemDirections.filter((x) => x !== d)
-              : [...s.state.itemDirections, d],
-            updatedAt: Date.now(),
-          },
+          state: { ...s.state, items: s.state.items.filter((_, i) => i !== idx), updatedAt: Date.now() },
         })),
+      clearItems: () => set((s) => ({ state: { ...s.state, items: [], updatedAt: Date.now() } })),
 
-      setAugmentChoices: (a) => set((s) => ({ state: { ...s.state, augmentChoices: a, updatedAt: Date.now() } })),
+      addAugment: (a) =>
+        set((s) => {
+          if (s.state.augmentChoices.length >= 3 || s.state.augmentChoices.some((x) => x.id === a.id)) return s;
+          return { state: { ...s.state, augmentChoices: [...s.state.augmentChoices, a], updatedAt: Date.now() } };
+        }),
+      removeAugment: (id) =>
+        set((s) => ({
+          state: { ...s.state, augmentChoices: s.state.augmentChoices.filter((a) => a.id !== id), updatedAt: Date.now() },
+        })),
 
       setRoadmap: (r) => set({ lastRoadmap: r }),
       setIsPlanning: (b) => set({ isPlanning: b }),
@@ -125,7 +132,7 @@ export const useGameStore = create<Store>()(
       name: STORAGE_KEY,
       storage: createJSONStorage(() => (typeof window !== "undefined" ? window.localStorage : ({} as Storage))),
       partialize: (s) => ({ state: s.state, lastRoadmap: s.lastRoadmap }),
-      version: 2,
+      version: 3,
     },
   ),
 );

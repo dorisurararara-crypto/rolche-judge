@@ -4,6 +4,7 @@ import { RotateCcw } from "lucide-react";
 import { SummaryHeader } from "@/components/SummaryHeader";
 import { GameStateInput } from "@/components/GameStateInput";
 import { RosterInput } from "@/components/RosterInput";
+import { ItemTray } from "@/components/ItemTray";
 import { AugmentPicker } from "@/components/AugmentPicker";
 import { RoadmapCard } from "@/components/RoadmapCard";
 import { PlanButton } from "@/components/PlanButton";
@@ -46,6 +47,7 @@ export default function Home() {
 
         <GameStateInput />
         <RosterInput />
+        <ItemTray />
         <AugmentPicker />
 
         <div id="roadmap" className="scroll-mt-20">
