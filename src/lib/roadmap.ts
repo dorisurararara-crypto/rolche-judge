@@ -347,8 +347,9 @@ export function buildRoadmap(state: GameState): Roadmap {
   const ph = phaseOf(state.round);
   const tc = topCost(state.roster);
   const pairs = lowCostPairs(state);
-  // 진짜 캐리각: 4코+ 보유 OR 저코 페어 3개+ (리롤 확정) OR 매칭 덱이 캐리 보유 인정
-  const hasRealCarry = tc >= 4 || pairs >= 3 || (best?.hasCarry ?? false);
+  const hasRerollAug = state.augmentChoices.some((a) => a.type === "reroll");
+  // 진짜 캐리각/방향 확정: 4코+ 보유 OR 저코 페어 2개+(리롤 의도) OR 리롤증강 OR 매칭 덱이 캐리 인정
+  const hasRealCarry = tc >= 4 || pairs >= 2 || hasRerollAug || (best?.hasCarry ?? false);
   const isBuildup = state.roster.length > 0 && ph === "open" && !hasRealCarry;
 
   let directionName: string;
@@ -359,9 +360,9 @@ export function buildRoadmap(state: GameState): Roadmap {
   } else if (isBuildup) {
     directionName = "빌드업 단계 — 아직 덱 확정 X";
     directionReason =
-      `${state.round}는 강한 보드 + 아이템 재료 정리 시기예요. 지금 든 저코 유닛은 대부분 거쳐가는 빌드업/연결용이라 1코 캐리로 단정하면 안 돼요. ` +
+      `${state.round}는 강한 보드 + 아이템 재료 정리 시기예요. 지금 든 저코 유닛은 1장뿐이라 거쳐가는 빌드업/연결용 — 메인 캐리로 단정하긴 일러요. ` +
       `${dir ? `아이템이 ${DIR_LABEL[dir]} 쪽이니 그 계열 4코 캐리덱 방향으로 ` : "아이템 방향부터 잡고 "}경제 쌓다가, ` +
-      `저코 페어가 3개+ 모이면 리롤덱도 고려. 4-1에 캐리 확정해요.`;
+      `저코 페어가 모이거나 리롤 증강을 받으면 그땐 리롤덱으로 확정해도 돼요 (저코 리롤덱도 1티어 많음). 4-1에 방향 확정.`;
   } else if (best && (ph === "late" || hasRealCarry)) {
     directionName = best.deck.name;
     directionReason = `현재 메타(${getMeta().patch}) — ${best.reasons.join(" · ")}`;

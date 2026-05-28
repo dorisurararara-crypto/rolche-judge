@@ -92,27 +92,46 @@ export function matchDecks(state: GameState): DeckMatch[] {
     const carryBonus = carriesOwned.length * 0.2;
     const highCarryBonus = carriesOwned.filter((c) => (owned.get(c)?.cost ?? 0) >= 4).length * 0.18;
 
-    // 저코(1~2코) 캐리를 페어(2장+) 못 모은 채 보유 = 아직 그 덱 캐리 아님 (그냥 거쳐가는 유닛).
-    // 리롤덱을 1장만 보고 추천하면 안 됨 → 페널티.
+    // 증강 종합: 보유 증강 type 이 덱 운영과 맞으면 가중
+    const augTypes = new Set(state.augmentChoices.map((a) => a.type));
+    const hasRerollAug = augTypes.has("reroll");
+    let augFit = 0;
+    if (deck.style === "reroll" && hasRerollAug) augFit += 0.15;
+    if (deck.style === "fast8" && augTypes.has("economy")) augFit += 0.1;
+    if (augTypes.has("item")) augFit += 0.04;
+
+    // 리롤 신호: 저코 캐리덱인데 그 캐리 페어(2장+) 보유 OR 리롤증강 → 리롤 의도 정당 → 가중
+    const rerollReady =
+      deck.style === "reroll" &&
+      (carriesOwned.some((c) => (owned.get(c)?.copies ?? 0) >= 2) || hasRerollAug);
+    const rerollBonus = rerollReady ? 0.18 : 0;
+
+    // 저코(1~2코) 캐리를 1장만(페어 X) 보유 + 리롤 신호도 없음 = 거쳐가는 빌드업 유닛 → 페널티.
+    // (페어 모였거나 리롤증강 있으면 정당한 리롤덱 → 페널티 면제)
     let lowCostUnpaired = 0;
     for (const c of carriesOwned) {
       const o = owned.get(c);
-      if (o && o.cost <= 2 && o.copies < 2) lowCostUnpaired++;
+      if (o && o.cost <= 2 && o.copies < 2 && !rerollReady) lowCostUnpaired++;
     }
     const lowPenalty = lowCostUnpaired * 0.22;
 
-    const score = Math.max(0, Math.min(1, overlapRatio * 0.45 + carryBonus + highCarryBonus - lowPenalty));
+    const score = Math.max(
+      0,
+      Math.min(1, overlapRatio * 0.4 + carryBonus + highCarryBonus + augFit + rerollBonus - lowPenalty),
+    );
 
     const reasons: string[] = [];
     const realCarries = carriesOwned.filter((c) => {
       const o = owned.get(c);
-      return o && (o.cost >= 3 || o.copies >= 2); // 3코+ 또는 저코 페어 = 실제 캐리각
+      return o && (o.cost >= 3 || o.copies >= 2 || (o.cost <= 2 && rerollReady));
     });
     if (realCarries.length) reasons.push(`핵심 ${realCarries.join(", ")} 보유`);
+    if (rerollReady) reasons.push(`리롤 신호 (페어/리롤증강) — 저코 리롤덱 정당`);
     const buildupOnly = carriesOwned.filter((c) => !realCarries.includes(c));
     if (buildupOnly.length) reasons.push(`${buildupOnly.join(", ")}는 아직 1장 — 빌드업/연결용`);
+    if (augFit > 0) reasons.push(`증강 방향 일치`);
     if (ownedInDeck.length) reasons.push(`구성 ${ownedInDeck.length}/${deckUnitNames.length} 겹침`);
-    if (missingCarries.length) reasons.push(`캐리 영입 필요: ${missingCarries.join(", ")}`);
+    if (missingCarries.length) reasons.push(`영입 필요: ${missingCarries.join(", ")}`);
 
     return { deck, score, ownedUnits: ownedInDeck, missingCarries, hasCarry: realCarries.length > 0, reasons };
   });
