@@ -1,5 +1,6 @@
 import metaData from "./data/meta-decks.json";
 import { findUnit } from "./data/units";
+import { countRoster } from "./economy";
 import type { GameState } from "./types";
 
 export interface MetaUnit {
@@ -66,18 +67,19 @@ export interface DeckMatch {
   reasons: string[];
 }
 
-// roster 의 유닛 한글명 set
-function rosterNames(state: GameState): Set<string> {
-  const s = new Set<string>();
-  for (const u of state.roster) {
-    const def = findUnit(u.unitId);
-    if (def) s.add(def.nameKo);
+// roster 의 유닛 한글명 → {cost, copies(보이는 장수)}
+function ownedMap(state: GameState): Map<string, { cost: number; copies: number }> {
+  const counts = countRoster(state.roster);
+  const m = new Map<string, { cost: number; copies: number }>();
+  for (const c of counts) {
+    const def = findUnit(c.unitId);
+    if (def) m.set(def.nameKo, { cost: def.cost, copies: c.totalCopiesVisible });
   }
-  return s;
+  return m;
 }
 
 export function matchDecks(state: GameState): DeckMatch[] {
-  const owned = rosterNames(state);
+  const owned = ownedMap(state);
   if (owned.size === 0) return [];
 
   const results: DeckMatch[] = getMeta().decks.map((deck) => {
@@ -86,31 +88,36 @@ export function matchDecks(state: GameState): DeckMatch[] {
     const carriesOwned = deck.carries.filter((c) => owned.has(c));
     const missingCarries = deck.carries.filter((c) => !owned.has(c));
 
-    // 점수: 겹친 유닛 비율 + 캐리 보유 가중 + 고코스트 겹침 가중
     const overlapRatio = ownedInDeck.length / Math.max(deckUnitNames.length, 1);
-    const carryBonus = carriesOwned.length * 0.25;
-    const highCostOverlap =
-      deck.units.filter((u) => u.cost >= 4 && owned.has(u.name)).length * 0.1;
-    const score = Math.min(1, overlapRatio * 0.6 + carryBonus + highCostOverlap);
+    const carryBonus = carriesOwned.length * 0.2;
+    const highCarryBonus = carriesOwned.filter((c) => (owned.get(c)?.cost ?? 0) >= 4).length * 0.18;
+
+    // 저코(1~2코) 캐리를 페어(2장+) 못 모은 채 보유 = 아직 그 덱 캐리 아님 (그냥 거쳐가는 유닛).
+    // 리롤덱을 1장만 보고 추천하면 안 됨 → 페널티.
+    let lowCostUnpaired = 0;
+    for (const c of carriesOwned) {
+      const o = owned.get(c);
+      if (o && o.cost <= 2 && o.copies < 2) lowCostUnpaired++;
+    }
+    const lowPenalty = lowCostUnpaired * 0.22;
+
+    const score = Math.max(0, Math.min(1, overlapRatio * 0.45 + carryBonus + highCarryBonus - lowPenalty));
 
     const reasons: string[] = [];
-    if (carriesOwned.length) reasons.push(`핵심 ${carriesOwned.join(", ")} 보유`);
-    if (ownedInDeck.length) reasons.push(`구성 유닛 ${ownedInDeck.length}/${deckUnitNames.length} 겹침`);
-    if (missingCarries.length) reasons.push(`아직 없는 캐리: ${missingCarries.join(", ")}`);
+    const realCarries = carriesOwned.filter((c) => {
+      const o = owned.get(c);
+      return o && (o.cost >= 3 || o.copies >= 2); // 3코+ 또는 저코 페어 = 실제 캐리각
+    });
+    if (realCarries.length) reasons.push(`핵심 ${realCarries.join(", ")} 보유`);
+    const buildupOnly = carriesOwned.filter((c) => !realCarries.includes(c));
+    if (buildupOnly.length) reasons.push(`${buildupOnly.join(", ")}는 아직 1장 — 빌드업/연결용`);
+    if (ownedInDeck.length) reasons.push(`구성 ${ownedInDeck.length}/${deckUnitNames.length} 겹침`);
+    if (missingCarries.length) reasons.push(`캐리 영입 필요: ${missingCarries.join(", ")}`);
 
-    return {
-      deck,
-      score,
-      ownedUnits: ownedInDeck,
-      missingCarries,
-      hasCarry: carriesOwned.length > 0,
-      reasons,
-    };
+    return { deck, score, ownedUnits: ownedInDeck, missingCarries, hasCarry: realCarries.length > 0, reasons };
   });
 
-  return results
-    .filter((r) => r.ownedUnits.length > 0)
-    .sort((a, b) => b.score - a.score);
+  return results.filter((r) => r.ownedUnits.length > 0).sort((a, b) => b.score - a.score);
 }
 
 export function topMatches(state: GameState, n = 3): DeckMatch[] {

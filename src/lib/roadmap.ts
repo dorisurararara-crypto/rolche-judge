@@ -46,6 +46,22 @@ function roundIndex(r: RoundCode): number {
   return ["2-1", "2-5", "3-2", "3-5", "4-1", "4-2", "4-5", "5-1", "5-5", "6-1"].indexOf(r);
 }
 
+// 게임 단계: 오프닝(빌드업) / 미드(방향) / 후반(확정)
+function phaseOf(r: RoundCode): "open" | "mid" | "late" {
+  const i = roundIndex(r);
+  if (i <= 1) return "open"; // 2-1, 2-5
+  if (i <= 3) return "mid"; // 3-2, 3-5
+  return "late"; // 4-1+
+}
+
+// 저코 페어(2장+) 개수 — 리롤덱 의도 판단
+function lowCostPairs(state: GameState): number {
+  return countRoster(state.roster).filter((c) => {
+    const d = findUnit(c.unitId);
+    return d && d.cost <= 2 && c.totalCopiesVisible >= 2;
+  }).length;
+}
+
 function dominantDir(state: GameState): ItemDirection | null {
   if (state.items.length === 0) return null;
   const score: Record<ItemDirection, number> = { AD: 0, AP: 0, Tank: 0, Flex: 0 };
@@ -192,23 +208,37 @@ function buildLevelPlan(state: GameState, style: PlayStyle): Roadmap["levelPlan"
     });
 }
 
-function buildImmediate(state: GameState, style: PlayStyle, dir: ItemDirection | null, best?: DeckMatch): string[] {
+function buildImmediate(
+  state: GameState,
+  style: PlayStyle,
+  dir: ItemDirection | null,
+  best: DeckMatch | undefined,
+  isBuildup: boolean,
+): string[] {
   const out: string[] = [];
   const interest = computeInterest(state.gold);
   const counts = countRoster(state.roster);
   const recLv = recommendedLevel(state.round);
+
+  // 빌드업 단계: 덱 확정 X, 보드 유지 + 경제 + 아이템 정리가 핵심
+  if (isBuildup) {
+    out.push("지금은 빌드업 — 덱 확정 X. 그냥 제일 강한 유닛으로 보드 채워서 연승/체력 유지");
+    out.push(`아이템 재료는 ${dir ? DIR_LABEL[dir] + " 쪽으로 모으되 " : ""}완성 너무 서두르지 말고 (방향 확정 후 조합)`);
+    out.push(`경제 우선 — ${interest.tier}골 이자 유지하면서 레벨 천천히`);
+    out.push("4-1에 7레벨 롤다운으로 캐리 확정. 그 전까진 유연하게");
+    if (state.hp < 50) out.push("체력 낮으면(50↓) 보드 강화 우선 — 너무 아끼지 말기");
+    return out;
+  }
 
   // 레벨
   if (state.level < recLv) out.push(`레벨업 → ${recLv} (현재 ${state.level}, 한 박자 늦음)`);
   else if (style === "fast8" && state.gold >= 40) out.push(`경험치 사서 레벨 우선 (${state.level}→${state.level + 1})`);
   else out.push(`레벨 유지 (${state.level}) — 지금은 ${interest.tier}골 이자가 우선`);
 
-  // 경제
   if (interest.tier < 50 && state.hp >= 50 && style !== "reroll") {
-    out.push(`${interest.tier}골 → 다음 이자 구간까지 모으기 (지금 안 쓰는 게 이득)`);
+    out.push(`${interest.tier}골 → 다음 이자 구간까지 모으기`);
   }
 
-  // 리롤
   if (style === "reroll" && (state.round === "3-2" || state.round === "4-1")) {
     out.push(`리롤 시작 — 30골까지 (핵심 3성각 보고 멈춤)`);
   } else if (state.hp < 40) {
@@ -217,25 +247,20 @@ function buildImmediate(state: GameState, style: PlayStyle, dir: ItemDirection |
     out.push(`리롤 X — 자연 수급으로 충분`);
   }
 
-  // 매칭 덱 기준 "다음 영입" (가장 구체적인 행동)
+  // 매칭 덱 기준 "다음 영입"
   if (best) {
     const ownedSet = new Set(best.ownedUnits);
     const nextCarry = best.deck.units.filter((u) => u.isCarry && !ownedSet.has(u.name));
     if (nextCarry.length) {
       out.push(`다음 핵심 영입: ${nextCarry.map((u) => `${u.name}(${u.cost}코)`).join(", ")} — 캐리라 최우선`);
     }
-    const carryItems = best.deck.units.find((u) => u.isCarry)?.items ?? [];
-    if (carryItems.length) {
-      out.push(`캐리 아이템 목표: ${best.deck.units.find((u) => u.isCarry)?.name} = ${carryItems.join(" + ")}`);
-    }
+    const carry = best.deck.units.find((u) => u.isCarry);
+    if (carry?.items.length) out.push(`캐리 아이템 목표: ${carry.name} = ${carry.items.join(" + ")}`);
   }
 
-  // 2성각
   const upgradeable = counts.filter((c) => c.canUpgradeToTwoStar);
   if (upgradeable.length > 0) {
-    out.push(
-      `2성 굳히기: ${upgradeable.map((c) => findUnit(c.unitId)?.nameKo ?? c.unitId).slice(0, 3).join(", ")}`,
-    );
+    out.push(`2성 굳히기: ${upgradeable.map((c) => findUnit(c.unitId)?.nameKo ?? c.unitId).slice(0, 3).join(", ")}`);
   }
 
   if (dir && !best) out.push(`아이템은 ${DIR_LABEL[dir]} 캐리에 몰아주기`);
@@ -319,18 +344,34 @@ export function buildRoadmap(state: GameState): Roadmap {
     : undefined;
 
   // 메타 덱 매칭이 있으면 그게 방향. 없으면 룰베이스 추론 fallback.
-  const directionName = best
-    ? best.deck.name
-    : style === "undecided"
-      ? "유닛을 입력하면 방향을 잡아줄게요"
-      : dir
-        ? DIR_CARRY[dir]
-        : "아이템 방향 입력 시 더 정확";
-  const directionReason = best
-    ? `현재 메타(${getMeta().patch}) 매칭 — ${best.reasons.join(" · ")}`
-    : style === "undecided"
-      ? "보유 유닛을 입력하면 현재 메타 덱과 매칭해줄게요."
-      : `${dir ? DIR_LABEL[dir] + " 아이템 + " : ""}최고 코스트 ${topCost(state.roster)}코 보유 → ${styleLabel(style)} (메타 덱 매칭 0 — 유닛 더 입력)`;
+  const ph = phaseOf(state.round);
+  const tc = topCost(state.roster);
+  const pairs = lowCostPairs(state);
+  // 진짜 캐리각: 4코+ 보유 OR 저코 페어 3개+ (리롤 확정) OR 매칭 덱이 캐리 보유 인정
+  const hasRealCarry = tc >= 4 || pairs >= 3 || (best?.hasCarry ?? false);
+  const isBuildup = state.roster.length > 0 && ph === "open" && !hasRealCarry;
+
+  let directionName: string;
+  let directionReason: string;
+  if (state.roster.length === 0) {
+    directionName = "보유 유닛을 입력하면 방향을 잡아줄게요";
+    directionReason = "지금 든 유닛 + 아이템으로 현재 메타 덱과 매칭해요.";
+  } else if (isBuildup) {
+    directionName = "빌드업 단계 — 아직 덱 확정 X";
+    directionReason =
+      `${state.round}는 강한 보드 + 아이템 재료 정리 시기예요. 지금 든 저코 유닛은 대부분 거쳐가는 빌드업/연결용이라 1코 캐리로 단정하면 안 돼요. ` +
+      `${dir ? `아이템이 ${DIR_LABEL[dir]} 쪽이니 그 계열 4코 캐리덱 방향으로 ` : "아이템 방향부터 잡고 "}경제 쌓다가, ` +
+      `저코 페어가 3개+ 모이면 리롤덱도 고려. 4-1에 캐리 확정해요.`;
+  } else if (best && (ph === "late" || hasRealCarry)) {
+    directionName = best.deck.name;
+    directionReason = `현재 메타(${getMeta().patch}) — ${best.reasons.join(" · ")}`;
+  } else if (best) {
+    directionName = `${best.deck.name} 유력 (방향 좁히는 중)`;
+    directionReason = `${state.round}는 방향 잡는 시기. ${best.reasons.join(" · ")}. 아이템·유닛 더 모이면 4-1에 확정.`;
+  } else {
+    directionName = dir ? `${DIR_CARRY[dir]} 방향 (메타 매칭 약함)` : "유닛·아이템 더 입력 필요";
+    directionReason = "현재 보유로는 메타 덱 매칭이 약해요. 아이템 방향 + 핵심 유닛 더 모아보세요.";
+  }
 
   const risks: string[] = [];
   if (state.hp < 40) risks.push("체력 40 미만 — 분기점 안 기다리고 즉시 안정화(리롤/레벨)로 전환");
@@ -340,12 +381,12 @@ export function buildRoadmap(state: GameState): Roadmap {
   if (state.items.length === 0) risks.push("아이템 미입력 — 캐리 타입 추천 정확도 ↓");
 
   return {
-    styleLabel: best ? styleLabel(best.deck.style) : styleLabel(style),
-    direction: { name: directionName, reason: directionReason, alt: matches[1]?.deck.name },
+    styleLabel: isBuildup ? "빌드업 (방향 탐색 중)" : best ? styleLabel(best.deck.style) : styleLabel(style),
+    direction: { name: directionName, reason: directionReason, alt: isBuildup ? undefined : matches[1]?.deck.name },
     metaMatches: matches,
     metaPatch: getMeta().patch,
-    targetBoard,
-    immediateActions: buildImmediate(state, style, dir, best),
+    targetBoard: isBuildup ? undefined : targetBoard,
+    immediateActions: buildImmediate(state, style, dir, best, isBuildup),
     milestones: buildMilestones(state, style),
     levelPlan: buildLevelPlan(state, style),
     economyPlan:
