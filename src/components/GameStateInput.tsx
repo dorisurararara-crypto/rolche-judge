@@ -1,13 +1,13 @@
 "use client";
 import { useGameStore } from "@/store/useGameStore";
 import { recommendedLevel } from "@/lib/economy";
-import type { RoundCode, BoardState } from "@/lib/types";
+import { CHECKPOINTS } from "@/lib/types";
+import type { RoundCode, BoardState, ItemDirection } from "@/lib/types";
 import { Minus, Plus } from "lucide-react";
 
 const ROUNDS: RoundCode[] = ["2-1", "2-5", "3-2", "3-5", "4-1", "4-2", "4-5", "5-1", "5-5", "6-1"];
-const STAR_ROUNDS = new Set<RoundCode>(["2-1", "3-2", "4-1"]);
 const LEVELS = [4, 5, 6, 7, 8, 9, 10];
-const HP_BUCKETS: { label: string; value: number }[] = [
+const HP_BUCKETS = [
   { label: "80+", value: 85 },
   { label: "60~79", value: 70 },
   { label: "40~59", value: 50 },
@@ -21,6 +21,12 @@ const BOARDS: { value: BoardState; label: string }[] = [
   { value: "winStreak", label: "연승" },
   { value: "loseStreak", label: "연패" },
 ];
+const DIRS: { value: ItemDirection; label: string }[] = [
+  { value: "AD", label: "AD" },
+  { value: "AP", label: "AP" },
+  { value: "Tank", label: "탱" },
+  { value: "Flex", label: "유연" },
+];
 
 export function GameStateInput() {
   const state = useGameStore((s) => s.state);
@@ -30,6 +36,7 @@ export function GameStateInput() {
   const bumpGold = useGameStore((s) => s.bumpGold);
   const setHp = useGameStore((s) => s.setHp);
   const setBoardState = useGameStore((s) => s.setBoardState);
+  const toggleDir = useGameStore((s) => s.toggleItemDirection);
 
   const recLevel = recommendedLevel(state.round);
 
@@ -38,21 +45,28 @@ export function GameStateInput() {
       <div>
         <div className="flex items-baseline justify-between mb-1.5">
           <label className="text-xs text-zinc-400">라운드</label>
-          <span className="text-[10px] text-zinc-500">자주 쓰는 라운드 ★</span>
+          <span className="text-[10px] text-accent-2">⭐ = 핵심 분기점 (입력 권장)</span>
         </div>
         <div className="flex flex-wrap gap-1.5">
-          {ROUNDS.map((r) => (
-            <button
-              key={r}
-              onClick={() => setRound(r)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                state.round === r ? "bg-accent text-black" : "bg-surface-2 text-zinc-300"
-              }`}
-            >
-              {r}
-              {STAR_ROUNDS.has(r) && <span className="ml-0.5 text-accent-2">★</span>}
-            </button>
-          ))}
+          {ROUNDS.map((r) => {
+            const isCp = CHECKPOINTS.includes(r);
+            return (
+              <button
+                key={r}
+                onClick={() => setRound(r)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
+                  state.round === r
+                    ? "bg-accent text-black"
+                    : isCp
+                      ? "bg-surface-2 text-accent-2 ring-1 ring-accent-2/40"
+                      : "bg-surface-2 text-zinc-300"
+                }`}
+              >
+                {isCp && <span className="mr-0.5">⭐</span>}
+                {r}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -80,66 +94,54 @@ export function GameStateInput() {
         </div>
       </div>
 
-      <div>
-        <label className="text-xs text-zinc-400 mb-1.5 block">골드</label>
-        <div className="flex items-stretch gap-1.5">
-          <button
-            onClick={() => bumpGold(-5)}
-            className="px-2 bg-surface-2 rounded-l-xl text-xs font-bold active:bg-surface w-12"
-          >
-            −5
-          </button>
-          <button
-            onClick={() => bumpGold(-1)}
-            className="px-2 bg-surface-2 text-zinc-300 active:bg-surface w-12"
-          >
-            <Minus size={14} className="mx-auto" />
-          </button>
-          <input
-            type="number"
-            inputMode="numeric"
-            value={state.gold}
-            onChange={(e) => setGold(parseInt(e.target.value) || 0)}
-            className="flex-1 bg-surface-2 text-center text-lg font-bold outline-none focus:ring-2 ring-accent/40"
-          />
-          <button
-            onClick={() => bumpGold(1)}
-            className="px-2 bg-surface-2 text-zinc-300 active:bg-surface w-12"
-          >
-            <Plus size={14} className="mx-auto" />
-          </button>
-          <button
-            onClick={() => bumpGold(5)}
-            className="px-2 bg-surface-2 rounded-r-xl text-xs font-bold active:bg-surface w-12"
-          >
-            +5
-          </button>
-        </div>
-      </div>
-
-      <div>
-        <div className="flex items-baseline justify-between mb-1.5">
-          <label className="text-xs text-zinc-400">체력</label>
-          <input
-            type="number"
-            inputMode="numeric"
-            value={state.hp}
-            onChange={(e) => setHp(parseInt(e.target.value) || 0)}
-            className="bg-surface-2 rounded-lg px-2 py-1 text-xs w-16 text-right outline-none focus:ring-2 ring-accent/40"
-          />
-        </div>
-        <div className="flex gap-1.5">
-          {HP_BUCKETS.map((b) => (
-            <button
-              key={b.label}
-              onClick={() => setHp(b.value)}
-              className={`flex-1 py-1.5 rounded-full text-[11px] font-medium transition ${
-                Math.abs(state.hp - b.value) <= 10 ? "bg-accent text-black" : "bg-surface-2 text-zinc-300"
-              }`}
-            >
-              {b.label}
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className="text-xs text-zinc-400 mb-1.5 block">골드</label>
+          <div className="flex items-stretch gap-1">
+            <button onClick={() => bumpGold(-1)} className="px-2 bg-surface-2 rounded-l-xl active:bg-surface">
+              <Minus size={13} />
             </button>
-          ))}
+            <input
+              type="number"
+              inputMode="numeric"
+              value={state.gold}
+              onChange={(e) => setGold(parseInt(e.target.value) || 0)}
+              className="flex-1 bg-surface-2 text-center text-base font-bold outline-none focus:ring-2 ring-accent/40 w-0"
+            />
+            <button onClick={() => bumpGold(1)} className="px-2 bg-surface-2 active:bg-surface">
+              <Plus size={13} />
+            </button>
+            <button onClick={() => bumpGold(10)} className="px-2 bg-surface-2 rounded-r-xl text-xs font-bold active:bg-surface">
+              +10
+            </button>
+          </div>
+        </div>
+        <div>
+          <label className="text-xs text-zinc-400 mb-1.5 block">체력</label>
+          <div className="flex gap-1">
+            <input
+              type="number"
+              inputMode="numeric"
+              value={state.hp}
+              onChange={(e) => setHp(parseInt(e.target.value) || 0)}
+              className="w-14 bg-surface-2 rounded-l-xl text-center text-base font-bold outline-none focus:ring-2 ring-accent/40"
+            />
+            <div className="flex-1 grid grid-cols-1 gap-0.5">
+              <div className="flex gap-0.5">
+                {HP_BUCKETS.map((b) => (
+                  <button
+                    key={b.label}
+                    onClick={() => setHp(b.value)}
+                    className={`flex-1 rounded text-[9px] py-1 ${
+                      Math.abs(state.hp - b.value) <= 10 ? "bg-accent text-black" : "bg-surface-2 text-zinc-400"
+                    }`}
+                  >
+                    {b.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -155,6 +157,27 @@ export function GameStateInput() {
               }`}
             >
               {b.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="flex items-baseline justify-between mb-1.5">
+          <label className="text-xs text-zinc-400">아이템 방향 (강한 쪽 탭, 복수 OK)</label>
+        </div>
+        <div className="flex gap-1.5">
+          {DIRS.map((d) => (
+            <button
+              key={d.value}
+              onClick={() => toggleDir(d.value)}
+              className={`flex-1 py-2 rounded-xl text-xs font-semibold transition ${
+                state.itemDirections.includes(d.value)
+                  ? "bg-accent text-black"
+                  : "bg-surface-2 text-zinc-300"
+              }`}
+            >
+              {d.label}
             </button>
           ))}
         </div>

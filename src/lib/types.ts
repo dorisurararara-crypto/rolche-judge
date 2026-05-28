@@ -1,13 +1,5 @@
 export type UnitCost = 1 | 2 | 3 | 4 | 5;
 export type UnitStars = 1 | 2 | 3;
-export type UnitRole =
-  | "carry"
-  | "secondaryCarry"
-  | "frontline"
-  | "utility"
-  | "traitBot"
-  | "itemHolder"
-  | "unknown";
 
 export interface UnitDef {
   id: string;
@@ -17,41 +9,13 @@ export interface UnitDef {
   traits?: string[];
 }
 
-export interface UnitInstance {
+export interface RosterUnit {
   instanceId: string;
   unitId: string;
   stars: UnitStars;
-  items: string[];
-  role?: UnitRole;
 }
 
-export interface BoardSlot {
-  slotId: string;
-  row: "front" | "mid" | "back";
-  col: number;
-  unit?: UnitInstance;
-}
-
-export interface BenchSlot {
-  index: number;
-  unit?: UnitInstance;
-}
-
-export interface ShopSlot {
-  index: number;
-  unitId?: string;
-}
-
-export type ItemKind = "component" | "completed";
 export type ItemDirection = "AD" | "AP" | "Tank" | "Flex";
-
-export interface ItemDef {
-  id: string;
-  nameEn: string;
-  nameKo: string;
-  kind: ItemKind;
-  directions: ItemDirection[];
-}
 
 export type RoundCode =
   | "2-1"
@@ -64,6 +28,9 @@ export type RoundCode =
   | "5-1"
   | "5-5"
   | "6-1";
+
+// 핵심 분기점 (입력 권장 지점)
+export const CHECKPOINTS: RoundCode[] = ["2-1", "3-2", "4-1", "5-1"];
 
 export type BoardState =
   | "strong"
@@ -94,12 +61,9 @@ export interface GameState {
   gold: number;
   hp: number;
   boardState: BoardState;
-  board: BoardSlot[];
-  bench: BenchSlot[];
-  shop: ShopSlot[];
-  benchItems: string[];
+  roster: RosterUnit[];
+  itemDirections: ItemDirection[];
   augmentChoices: AugmentChoice[];
-  question: string;
   recentUnits: string[];
   favoriteUnits: string[];
   createdAt: number;
@@ -116,15 +80,7 @@ export interface InterestInfo {
 export interface UnitCountInfo {
   unitId: string;
   totalCopiesVisible: number;
-  starsOnBoard: UnitStars[];
   canUpgradeToTwoStar: boolean;
   canUpgradeToThreeStar: boolean;
   isPair: boolean;
-}
-
-export interface DirectionScore {
-  AD: number;
-  AP: number;
-  Tank: number;
-  Flex: number;
 }
