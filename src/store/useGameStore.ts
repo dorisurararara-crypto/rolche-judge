@@ -10,7 +10,7 @@ import type {
 } from "@/lib/types";
 import type { Roadmap } from "@/lib/roadmap";
 
-const STORAGE_KEY = "rolche.gameState.v3";
+const STORAGE_KEY = "rolche.gameState.v4";
 
 function freshState(): GameState {
   const now = Date.now();
@@ -131,8 +131,9 @@ export const useGameStore = create<Store>()(
     {
       name: STORAGE_KEY,
       storage: createJSONStorage(() => (typeof window !== "undefined" ? window.localStorage : ({} as Storage))),
-      partialize: (s) => ({ state: s.state, lastRoadmap: s.lastRoadmap }),
-      version: 3,
+      // lastRoadmap 은 저장 X — 매번 버튼으로 재생성 (구버전 구조가 persist 되면 렌더 크래시 위험)
+      partialize: (s) => ({ state: s.state }),
+      version: 4,
     },
   ),
 );
