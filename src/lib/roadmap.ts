@@ -2,7 +2,7 @@ import type { GameState, ItemDirection, RoundCode } from "./types";
 import { findUnit } from "./data/units";
 import { findItem } from "./data/items";
 import { computeInterest, countRoster, recommendedLevel, topCost } from "./economy";
-import { topMatches, META, type DeckMatch } from "./deckMatch";
+import { topMatches, getMeta, type DeckMatch } from "./deckMatch";
 
 export type PlayStyle = "fast8" | "standard" | "reroll" | "undecided";
 
@@ -285,7 +285,7 @@ export function buildRoadmap(state: GameState): Roadmap {
         ? DIR_CARRY[dir]
         : "아이템 방향 입력 시 더 정확";
   const directionReason = best
-    ? `현재 메타(${META.patch}) 매칭 — ${best.reasons.join(" · ")}`
+    ? `현재 메타(${getMeta().patch}) 매칭 — ${best.reasons.join(" · ")}`
     : style === "undecided"
       ? "보유 유닛을 입력하면 현재 메타 덱과 매칭해줄게요."
       : `${dir ? DIR_LABEL[dir] + " 아이템 + " : ""}최고 코스트 ${topCost(state.roster)}코 보유 → ${styleLabel(style)} (메타 덱 매칭 0 — 유닛 더 입력)`;
@@ -301,7 +301,7 @@ export function buildRoadmap(state: GameState): Roadmap {
     styleLabel: best ? styleLabel(best.deck.style) : styleLabel(style),
     direction: { name: directionName, reason: directionReason, alt: matches[1]?.deck.name },
     metaMatches: matches,
-    metaPatch: META.patch,
+    metaPatch: getMeta().patch,
     immediateActions: buildImmediate(state, style, dir),
     milestones: buildMilestones(state, style),
     levelPlan: buildLevelPlan(state, style),

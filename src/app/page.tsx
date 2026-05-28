@@ -9,6 +9,7 @@ import { AugmentPicker } from "@/components/AugmentPicker";
 import { RoadmapCard } from "@/components/RoadmapCard";
 import { PlanButton } from "@/components/PlanButton";
 import { useGameStore } from "@/store/useGameStore";
+import { loadLatestMeta } from "@/lib/deckMatch";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -16,6 +17,8 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
+    // 최신 메타 덱을 GitHub에서 가져와 갱신 (실패해도 정적 fallback). 재배포 불필요.
+    loadLatestMeta();
   }, []);
 
   if (!mounted) {

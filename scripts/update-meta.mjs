@@ -9,9 +9,21 @@ const OUT = path.resolve("src/lib/data/meta-decks.json");
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36";
 
-function carryScore(slot) {
-  // 아이템 많을수록 / 고코스트 / 3성 = 캐리 가능성
-  return (slot.items?.length ?? 0) * 2 + (slot.star === 3 ? 2 : 0);
+// 방어/탱커 아이템 한글명 키워드 (이거 위주면 캐리 X 탱커)
+const DEF_KEYWORDS = [
+  "가고일", "워모그", "덤불", "태양불꽃", "선파이어", "구원", "이온", "용의 발톱", "용발톱",
+  "강철의 심장", "수호자", "방패", "거인의 벨트", "정의의 손길", "적응형 투구", "크라운가드",
+  "원기 회복", "윈드", "구속의", "철갑", "브램블",
+];
+function isDefensiveItem(nameKo) {
+  return DEF_KEYWORDS.some((d) => nameKo.includes(d));
+}
+// 공격 아이템 수 + 3성 보정으로 캐리 점수
+function carryScoreFromUnit(u) {
+  const atk = u.items.filter((i) => !isDefensiveItem(i)).length;
+  const full = u.items.length >= 3 ? 1 : 0;
+  const threeStar = u.star === 3 ? 1 : 0;
+  return atk * 2 + full + threeStar;
 }
 
 async function main() {
@@ -47,19 +59,22 @@ async function main() {
     .filter((d) => !d.name.includes("요약"))
     .map((d) => {
       const slots = d.data.slots;
-      const maxCarry = Math.max(...slots.map(carryScore), 0);
-      const units = slots.map((s) => {
-        const cs = carryScore(s);
-        return {
-          key: s.champion,
-          name: champKo(s.champion),
-          cost: champCost(s.champion),
-          star: s.star ?? 1,
-          items: (s.items ?? []).map(itemKo),
-          isCarry: cs >= 4 && cs >= maxCarry - 1,
-          row: typeof s.index === "number" ? Math.floor(s.index / 7) : null,
-        };
-      });
+      let units = slots.map((s) => ({
+        key: s.champion,
+        name: champKo(s.champion),
+        cost: champCost(s.champion),
+        star: s.star ?? 1,
+        items: (s.items ?? []).map(itemKo),
+        isCarry: false,
+        row: typeof s.index === "number" ? Math.floor(s.index / 7) : null,
+      }));
+      // 캐리 판정: 공격 아이템 든 유닛 중 상위 1~2명. 풀템 공격형 우선.
+      const ranked = units
+        .map((u) => ({ u, cs: carryScoreFromUnit(u) }))
+        .filter((x) => x.cs >= 3) // 최소 공격아이템 1+풀템 또는 공격2
+        .sort((a, b) => b.cs - a.cs || b.u.cost - a.u.cost);
+      const carrySet = new Set(ranked.slice(0, 2).map((x) => x.u.key));
+      units = units.map((u) => ({ ...u, isCarry: carrySet.has(u.key) }));
       // 특성 집계 (가장 많이 등장하는 trait = 덱 정체성)
       const traitCount = new Map();
       for (const s of slots) for (const t of champTraits(s.champion)) traitCount.set(t, (traitCount.get(t) ?? 0) + 1);

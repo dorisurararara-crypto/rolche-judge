@@ -30,7 +30,31 @@ export interface MetaFile {
   decks: MetaDeck[];
 }
 
-export const META = metaData as MetaFile;
+// 빌드에 포함된 정적 메타 (즉시 fallback). 런타임에 GitHub raw 최신본으로 갱신.
+let _meta: MetaFile = metaData as MetaFile;
+export function getMeta(): MetaFile {
+  return _meta;
+}
+
+const RAW_URL =
+  "https://raw.githubusercontent.com/dorisurararara-crypto/rolche-judge/main/src/lib/data/meta-decks.json";
+
+// 앱 진입 시 1회 호출. 성공하면 module 메타를 최신으로 교체 (재배포 불필요).
+// 실패해도 정적 fallback 유지 → 앱은 항상 동작.
+export async function loadLatestMeta(): Promise<boolean> {
+  try {
+    const r = await fetch(RAW_URL, { cache: "no-store" });
+    if (!r.ok) return false;
+    const j = (await r.json()) as MetaFile;
+    if (j?.decks?.length) {
+      _meta = j;
+      return true;
+    }
+  } catch {
+    /* 네트워크 실패 → 정적 fallback */
+  }
+  return false;
+}
 
 export interface DeckMatch {
   deck: MetaDeck;
@@ -55,7 +79,7 @@ export function matchDecks(state: GameState): DeckMatch[] {
   const owned = rosterNames(state);
   if (owned.size === 0) return [];
 
-  const results: DeckMatch[] = META.decks.map((deck) => {
+  const results: DeckMatch[] = getMeta().decks.map((deck) => {
     const deckUnitNames = deck.units.map((u) => u.name);
     const ownedInDeck = deckUnitNames.filter((n) => owned.has(n));
     const carriesOwned = deck.carries.filter((c) => owned.has(c));
