@@ -1,6 +1,6 @@
 "use client";
 import { useGameStore } from "@/store/useGameStore";
-import { AlertTriangle, Compass, Flag, ListChecks, TrendingUp, Clock, Coins } from "lucide-react";
+import { AlertTriangle, Compass, Flag, ListChecks, TrendingUp, Clock, Coins, Swords } from "lucide-react";
 
 export function RoadmapCard() {
   const roadmap = useGameStore((s) => s.lastRoadmap);
@@ -32,8 +32,46 @@ export function RoadmapCard() {
         <div className="inline-block mt-2 text-[11px] bg-black/30 rounded-full px-2.5 py-1 text-accent">
           {roadmap.styleLabel}
         </div>
-        <div className="text-[11px] text-zinc-400 mt-1">신뢰도 {(roadmap.confidence * 100).toFixed(0)}%</div>
+        <div className="text-[11px] text-zinc-400 mt-1">
+          신뢰도 {(roadmap.confidence * 100).toFixed(0)}% · 메타 {roadmap.metaPatch}
+        </div>
       </div>
+
+      {roadmap.metaMatches.length > 0 && (
+        <div className="bg-surface border border-border rounded-2xl p-3">
+          <div className="flex items-center gap-1.5 text-xs text-zinc-400 mb-2 font-semibold">
+            <Swords size={13} /> 매칭된 메타 덱 (1등 유저 기준)
+          </div>
+          <div className="space-y-2.5">
+            {roadmap.metaMatches.map((m, i) => (
+              <div key={m.deck.id} className={`rounded-xl p-2.5 ${i === 0 ? "bg-accent/10 ring-1 ring-accent/30" : "bg-surface-2"}`}>
+                <div className="flex items-center gap-2">
+                  <span className={`shrink-0 text-[10px] font-bold rounded px-1.5 py-0.5 ${i === 0 ? "bg-accent text-black" : "bg-surface text-zinc-400"}`}>
+                    {i === 0 ? "1순위" : i === 1 ? "전환" : "후보"}
+                  </span>
+                  <span className="font-bold text-sm flex-1">{m.deck.name}</span>
+                  <span className="text-[10px] text-zinc-500">{(m.score * 100).toFixed(0)}%</span>
+                </div>
+                <div className="flex flex-wrap gap-1 mt-1.5">
+                  {m.deck.units
+                    .filter((u) => u.isCarry)
+                    .map((u) => (
+                      <span key={u.key} className={`text-[10px] rounded px-1.5 py-0.5 bg-surface ring-cost-${u.cost || 1}`}>
+                        <span className={`cost-${u.cost || 1} font-semibold`}>{u.name}</span>
+                        {u.items.length > 0 && <span className="text-zinc-500"> · {u.items.join(", ")}</span>}
+                      </span>
+                    ))}
+                </div>
+                {m.deck.augments.length > 0 && (
+                  <div className="text-[10px] text-zinc-500 mt-1">증강: {m.deck.augments.join(" / ")}</div>
+                )}
+                <div className="text-[10px] text-zinc-400 mt-1 leading-snug">{m.reasons.join(" · ")}</div>
+              </div>
+            ))}
+          </div>
+          <div className="text-[10px] text-zinc-600 mt-2">출처: lolchess.gg 현재 패치 메타 · 매일 자동 갱신</div>
+        </div>
+      )}
 
       <div className="bg-surface border border-border rounded-2xl p-3">
         <div className="flex items-center gap-1.5 text-xs text-zinc-400 mb-2 font-semibold">

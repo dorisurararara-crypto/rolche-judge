@@ -1,0 +1,93 @@
+import metaData from "./data/meta-decks.json";
+import { findUnit } from "./data/units";
+import type { GameState } from "./types";
+
+export interface MetaUnit {
+  key: string;
+  name: string;
+  cost: number;
+  star: number;
+  items: string[];
+  isCarry: boolean;
+  row: number | null;
+}
+export interface MetaDeck {
+  id: string;
+  name: string;
+  teamCost: number | null;
+  units: MetaUnit[];
+  carries: string[];
+  augments: string[];
+  traits: { key: string; name: string; count: number }[];
+  topCost: number;
+  style: "fast8" | "reroll" | "standard";
+}
+export interface MetaFile {
+  source: string;
+  patch: string;
+  updatedAt: string;
+  deckCount: number;
+  decks: MetaDeck[];
+}
+
+export const META = metaData as MetaFile;
+
+export interface DeckMatch {
+  deck: MetaDeck;
+  score: number;
+  ownedUnits: string[]; // 보유 + 덱에 포함된 유닛 (한글명)
+  missingCarries: string[]; // 아직 없는 캐리
+  hasCarry: boolean;
+  reasons: string[];
+}
+
+// roster 의 유닛 한글명 set
+function rosterNames(state: GameState): Set<string> {
+  const s = new Set<string>();
+  for (const u of state.roster) {
+    const def = findUnit(u.unitId);
+    if (def) s.add(def.nameKo);
+  }
+  return s;
+}
+
+export function matchDecks(state: GameState): DeckMatch[] {
+  const owned = rosterNames(state);
+  if (owned.size === 0) return [];
+
+  const results: DeckMatch[] = META.decks.map((deck) => {
+    const deckUnitNames = deck.units.map((u) => u.name);
+    const ownedInDeck = deckUnitNames.filter((n) => owned.has(n));
+    const carriesOwned = deck.carries.filter((c) => owned.has(c));
+    const missingCarries = deck.carries.filter((c) => !owned.has(c));
+
+    // 점수: 겹친 유닛 비율 + 캐리 보유 가중 + 고코스트 겹침 가중
+    const overlapRatio = ownedInDeck.length / Math.max(deckUnitNames.length, 1);
+    const carryBonus = carriesOwned.length * 0.25;
+    const highCostOverlap =
+      deck.units.filter((u) => u.cost >= 4 && owned.has(u.name)).length * 0.1;
+    const score = Math.min(1, overlapRatio * 0.6 + carryBonus + highCostOverlap);
+
+    const reasons: string[] = [];
+    if (carriesOwned.length) reasons.push(`핵심 ${carriesOwned.join(", ")} 보유`);
+    if (ownedInDeck.length) reasons.push(`구성 유닛 ${ownedInDeck.length}/${deckUnitNames.length} 겹침`);
+    if (missingCarries.length) reasons.push(`아직 없는 캐리: ${missingCarries.join(", ")}`);
+
+    return {
+      deck,
+      score,
+      ownedUnits: ownedInDeck,
+      missingCarries,
+      hasCarry: carriesOwned.length > 0,
+      reasons,
+    };
+  });
+
+  return results
+    .filter((r) => r.ownedUnits.length > 0)
+    .sort((a, b) => b.score - a.score);
+}
+
+export function topMatches(state: GameState, n = 3): DeckMatch[] {
+  return matchDecks(state).slice(0, n);
+}

@@ -2,12 +2,15 @@ import type { GameState, ItemDirection, RoundCode } from "./types";
 import { findUnit } from "./data/units";
 import { findItem } from "./data/items";
 import { computeInterest, countRoster, recommendedLevel, topCost } from "./economy";
+import { topMatches, META, type DeckMatch } from "./deckMatch";
 
 export type PlayStyle = "fast8" | "standard" | "reroll" | "undecided";
 
 export interface Roadmap {
   styleLabel: string;
   direction: { name: string; reason: string; alt?: string };
+  metaMatches: DeckMatch[];
+  metaPatch: string;
   immediateActions: string[];
   milestones: { round: string; action: string; key?: boolean }[];
   levelPlan: { round: string; level: number; note: string }[];
@@ -270,17 +273,22 @@ export function buildRoadmap(state: GameState): Roadmap {
   const style = decideStyle(state);
   const dir = dominantDir(state);
   const interest = computeInterest(state.gold);
+  const matches = topMatches(state, 3);
+  const best = matches[0];
 
-  const directionName =
-    style === "undecided"
+  // 메타 덱 매칭이 있으면 그게 방향. 없으면 룰베이스 추론 fallback.
+  const directionName = best
+    ? best.deck.name
+    : style === "undecided"
       ? "유닛을 입력하면 방향을 잡아줄게요"
       : dir
         ? DIR_CARRY[dir]
         : "아이템 방향 입력 시 더 정확";
-  const directionReason =
-    style === "undecided"
-      ? "보유 유닛 + 아이템 방향이 있어야 덱을 추천할 수 있어요."
-      : `${dir ? DIR_LABEL[dir] + " 아이템 + " : ""}최고 코스트 ${topCost(state.roster)}코 보유 → ${styleLabel(style)}`;
+  const directionReason = best
+    ? `현재 메타(${META.patch}) 매칭 — ${best.reasons.join(" · ")}`
+    : style === "undecided"
+      ? "보유 유닛을 입력하면 현재 메타 덱과 매칭해줄게요."
+      : `${dir ? DIR_LABEL[dir] + " 아이템 + " : ""}최고 코스트 ${topCost(state.roster)}코 보유 → ${styleLabel(style)} (메타 덱 매칭 0 — 유닛 더 입력)`;
 
   const risks: string[] = [];
   if (state.hp < 40) risks.push("체력 40 미만 — 분기점 안 기다리고 즉시 안정화(리롤/레벨)로 전환");
@@ -290,8 +298,10 @@ export function buildRoadmap(state: GameState): Roadmap {
   if (state.items.length === 0) risks.push("아이템 미입력 — 캐리 타입 추천 정확도 ↓");
 
   return {
-    styleLabel: styleLabel(style),
-    direction: { name: directionName, reason: directionReason },
+    styleLabel: best ? styleLabel(best.deck.style) : styleLabel(style),
+    direction: { name: directionName, reason: directionReason, alt: matches[1]?.deck.name },
+    metaMatches: matches,
+    metaPatch: META.patch,
     immediateActions: buildImmediate(state, style, dir),
     milestones: buildMilestones(state, style),
     levelPlan: buildLevelPlan(state, style),
@@ -302,7 +312,7 @@ export function buildRoadmap(state: GameState): Roadmap {
     augmentRanking: decideAugments(state),
     risks,
     nextCheckpoint: nextCheckpointText(state.round),
-    confidence: style === "undecided" ? 0.2 : dir ? 0.78 : 0.6,
+    confidence: best ? Math.max(0.5, Math.min(0.95, 0.4 + best.score * 0.6)) : style === "undecided" ? 0.2 : dir ? 0.6 : 0.45,
     generatedAt: Date.now(),
   };
 }
