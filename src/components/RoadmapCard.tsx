@@ -82,7 +82,10 @@ export function RoadmapCard() {
                   <span className={`shrink-0 text-[10px] font-bold rounded px-1.5 py-0.5 ${i === 0 ? "bg-accent text-black" : "bg-surface text-zinc-400"}`}>
                     {i === 0 ? "1순위" : i === 1 ? "전환" : "후보"}
                   </span>
-                  <span className="font-bold text-sm flex-1">{m.deck.name}</span>
+                  <span className="font-bold text-sm flex-1">
+                    {m.deck.tier === "hot" && <span className="mr-1">🔥</span>}
+                    {m.deck.name}
+                  </span>
                   <span className="text-[10px] text-zinc-500">{(m.score * 100).toFixed(0)}%</span>
                 </div>
                 <div className="flex flex-wrap gap-1 mt-1.5">

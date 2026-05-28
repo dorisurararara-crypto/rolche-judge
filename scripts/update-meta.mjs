@@ -87,6 +87,7 @@ async function main() {
       return {
         id: d.teamBuilderKey,
         name: d.name,
+        tier: d.tag === "hot" ? "hot" : "normal", // lolchess 'hot' 태그 = 현재 핫한 티어덱
         teamCost: d.cost ?? null,
         units,
         carries: carries.length ? carries : [units.slice().sort((a, b) => b.cost - a.cost)[0]?.name].filter(Boolean),

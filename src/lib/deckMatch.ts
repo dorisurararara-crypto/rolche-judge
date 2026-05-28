@@ -15,6 +15,7 @@ export interface MetaUnit {
 export interface MetaDeck {
   id: string;
   name: string;
+  tier: "hot" | "normal";
   teamCost: number | null;
   units: MetaUnit[];
   carries: string[];
@@ -115,9 +116,12 @@ export function matchDecks(state: GameState): DeckMatch[] {
     }
     const lowPenalty = lowCostUnpaired * 0.22;
 
+    // 현재 핫한 티어덱 가중 (철지난 가이드 덱보다 우선)
+    const tierBonus = deck.tier === "hot" ? 0.2 : 0;
+
     const score = Math.max(
       0,
-      Math.min(1, overlapRatio * 0.4 + carryBonus + highCarryBonus + augFit + rerollBonus - lowPenalty),
+      Math.min(1, overlapRatio * 0.4 + carryBonus + highCarryBonus + augFit + rerollBonus + tierBonus - lowPenalty),
     );
 
     const reasons: string[] = [];
@@ -125,6 +129,7 @@ export function matchDecks(state: GameState): DeckMatch[] {
       const o = owned.get(c);
       return o && (o.cost >= 3 || o.copies >= 2 || (o.cost <= 2 && rerollReady));
     });
+    if (deck.tier === "hot") reasons.push(`🔥 현재 핫한 티어덱`);
     if (realCarries.length) reasons.push(`핵심 ${realCarries.join(", ")} 보유`);
     if (rerollReady) reasons.push(`리롤 신호 (페어/리롤증강) — 저코 리롤덱 정당`);
     const buildupOnly = carriesOwned.filter((c) => !realCarries.includes(c));
