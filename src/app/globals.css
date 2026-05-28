@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #08080c;
+  --foreground: #f3f4f6;
+  --surface: #16161d;
+  --surface-2: #1f1f2a;
+  --border: #2a2a37;
+  --accent: #c0a060;
+  --accent-2: #7c5fff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
+
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+* {
+  -webkit-touch-callout: none;
+}
+
+button,
+[role="button"] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.cost-1 { color: #b8b8b8; }
+.cost-2 { color: #4ade80; }
+.cost-3 { color: #3b82f6; }
+.cost-4 { color: #a855f7; }
+.cost-5 { color: #f59e0b; }
+
+.ring-cost-1 { box-shadow: inset 0 0 0 2px #b8b8b8; }
+.ring-cost-2 { box-shadow: inset 0 0 0 2px #4ade80; }
+.ring-cost-3 { box-shadow: inset 0 0 0 2px #3b82f6; }
+.ring-cost-4 { box-shadow: inset 0 0 0 2px #a855f7; }
+.ring-cost-5 { box-shadow: inset 0 0 0 2px #f59e0b; }
