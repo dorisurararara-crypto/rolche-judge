@@ -46,7 +46,8 @@ export async function loadLatestMeta(): Promise<boolean> {
     const r = await fetch(RAW_URL, { cache: "no-store" });
     if (!r.ok) return false;
     const j = (await r.json()) as MetaFile;
-    if (j?.decks?.length) {
+    // raw CDN 캐시가 stale 일 수 있음 → 더 최신(updatedAt)일 때만 교체. 과거면 정적 유지.
+    if (j?.decks?.length && new Date(j.updatedAt).getTime() >= new Date(_meta.updatedAt).getTime()) {
       _meta = j;
       return true;
     }
