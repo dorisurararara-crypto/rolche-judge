@@ -37,6 +37,39 @@ export function RoadmapCard() {
         </div>
       </div>
 
+      {roadmap.targetBoard && (
+        <div className="bg-surface border border-border rounded-2xl p-3">
+          <div className="flex items-center gap-1.5 text-xs text-zinc-400 mb-2 font-semibold">
+            <Flag size={13} /> 목표 완성형 — {roadmap.targetBoard.deckName}
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {roadmap.targetBoard.units.map((u) => (
+              <span
+                key={u.name}
+                className={`text-[11px] rounded px-1.5 py-1 ring-cost-${u.cost || 1} ${
+                  u.owned ? "bg-emerald-900/30" : "bg-surface-2 opacity-70"
+                }`}
+              >
+                <span className={`cost-${u.cost || 1} font-semibold`}>
+                  {u.owned ? "✓ " : ""}
+                  {u.name}
+                </span>
+                {u.isCarry && <span className="text-accent"> ★</span>}
+                {u.items.length > 0 && <span className="text-zinc-500 text-[10px]"> {u.items.join("·")}</span>}
+              </span>
+            ))}
+          </div>
+          {roadmap.targetBoard.missing.length > 0 && (
+            <div className="text-[11px] text-amber-300 mt-2">
+              아직 없음: {roadmap.targetBoard.missing.join(", ")}
+            </div>
+          )}
+          {roadmap.targetBoard.augments.length > 0 && (
+            <div className="text-[10px] text-zinc-500 mt-1">추천 증강: {roadmap.targetBoard.augments.join(" / ")}</div>
+          )}
+        </div>
+      )}
+
       {roadmap.metaMatches.length > 0 && (
         <div className="bg-surface border border-border rounded-2xl p-3">
           <div className="flex items-center gap-1.5 text-xs text-zinc-400 mb-2 font-semibold">

@@ -11,6 +11,12 @@ export interface Roadmap {
   direction: { name: string; reason: string; alt?: string };
   metaMatches: DeckMatch[];
   metaPatch: string;
+  targetBoard?: {
+    deckName: string;
+    units: { name: string; cost: number; star: number; items: string[]; isCarry: boolean; owned: boolean }[];
+    missing: string[];
+    augments: string[];
+  };
   immediateActions: string[];
   milestones: { round: string; action: string; key?: boolean }[];
   levelPlan: { round: string; level: number; note: string }[];
@@ -186,7 +192,7 @@ function buildLevelPlan(state: GameState, style: PlayStyle): Roadmap["levelPlan"
     });
 }
 
-function buildImmediate(state: GameState, style: PlayStyle, dir: ItemDirection | null): string[] {
+function buildImmediate(state: GameState, style: PlayStyle, dir: ItemDirection | null, best?: DeckMatch): string[] {
   const out: string[] = [];
   const interest = computeInterest(state.gold);
   const counts = countRoster(state.roster);
@@ -211,6 +217,19 @@ function buildImmediate(state: GameState, style: PlayStyle, dir: ItemDirection |
     out.push(`리롤 X — 자연 수급으로 충분`);
   }
 
+  // 매칭 덱 기준 "다음 영입" (가장 구체적인 행동)
+  if (best) {
+    const ownedSet = new Set(best.ownedUnits);
+    const nextCarry = best.deck.units.filter((u) => u.isCarry && !ownedSet.has(u.name));
+    if (nextCarry.length) {
+      out.push(`다음 핵심 영입: ${nextCarry.map((u) => `${u.name}(${u.cost}코)`).join(", ")} — 캐리라 최우선`);
+    }
+    const carryItems = best.deck.units.find((u) => u.isCarry)?.items ?? [];
+    if (carryItems.length) {
+      out.push(`캐리 아이템 목표: ${best.deck.units.find((u) => u.isCarry)?.name} = ${carryItems.join(" + ")}`);
+    }
+  }
+
   // 2성각
   const upgradeable = counts.filter((c) => c.canUpgradeToTwoStar);
   if (upgradeable.length > 0) {
@@ -219,7 +238,7 @@ function buildImmediate(state: GameState, style: PlayStyle, dir: ItemDirection |
     );
   }
 
-  if (dir) out.push(`아이템은 ${DIR_LABEL[dir]} 캐리에 몰아주기`);
+  if (dir && !best) out.push(`아이템은 ${DIR_LABEL[dir]} 캐리에 몰아주기`);
   return out;
 }
 
@@ -270,11 +289,34 @@ function nextCheckpointText(round: RoundCode): string {
 }
 
 export function buildRoadmap(state: GameState): Roadmap {
-  const style = decideStyle(state);
+  const inputStyle = decideStyle(state);
   const dir = dominantDir(state);
   const interest = computeInterest(state.gold);
   const matches = topMatches(state, 3);
   const best = matches[0];
+  // 매칭 덱이 있으면 그 덱의 운영 스타일로 통일 (로드맵 일관성). 없으면 입력 추론.
+  const style: PlayStyle = best ? best.deck.style : inputStyle;
+
+  // 목표 완성형 보드 (매칭 덱)
+  const ownedSet = best ? new Set(best.ownedUnits) : new Set<string>();
+  const targetBoard = best
+    ? {
+        deckName: best.deck.name,
+        units: best.deck.units
+          .slice()
+          .sort((a, b) => Number(b.isCarry) - Number(a.isCarry) || b.cost - a.cost)
+          .map((u) => ({
+            name: u.name,
+            cost: u.cost,
+            star: u.star,
+            items: u.items,
+            isCarry: u.isCarry,
+            owned: ownedSet.has(u.name),
+          })),
+        missing: best.deck.units.filter((u) => !ownedSet.has(u.name)).map((u) => u.name),
+        augments: best.deck.augments,
+      }
+    : undefined;
 
   // 메타 덱 매칭이 있으면 그게 방향. 없으면 룰베이스 추론 fallback.
   const directionName = best
@@ -302,7 +344,8 @@ export function buildRoadmap(state: GameState): Roadmap {
     direction: { name: directionName, reason: directionReason, alt: matches[1]?.deck.name },
     metaMatches: matches,
     metaPatch: getMeta().patch,
-    immediateActions: buildImmediate(state, style, dir),
+    targetBoard,
+    immediateActions: buildImmediate(state, style, dir, best),
     milestones: buildMilestones(state, style),
     levelPlan: buildLevelPlan(state, style),
     economyPlan:
