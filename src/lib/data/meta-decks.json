@@ -1,11 +1,11 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v17.6 (시즌 17)",
-  "updatedAt": "2026-06-30T20:55:31.632Z",
+  "updatedAt": "2026-07-01T20:46:35.057Z",
   "deckCount": 40,
   "decks": [
     {
-      "id": "67a87afab37ee596f46549af2016110b1c7c0745",
+      "id": "a9f112c2f932c3546637ed5709420355543f4730",
       "name": "선봉대 벡스",
       "tier": "hot",
       "teamCost": 105,
@@ -111,7 +111,7 @@
           "items": [
             "구인수의 격노검",
             "붉은 덩굴정령",
-            "대천사의 지팡이"
+            "라바돈의 죽음모자"
           ],
           "isCarry": true,
           "row": 3
@@ -1403,6 +1403,155 @@
       "style": "reroll"
     },
     {
+      "id": "0538e5e392caa05b41e302b18e0aefe2d04f6f95",
+      "name": "N.O.V.A. 그브 벡스",
+      "tier": "normal",
+      "teamCost": 105,
+      "units": [
+        {
+          "key": "Aatrox",
+          "name": "아트록스",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Akali",
+          "name": "아칼리",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Rhaast",
+          "name": "라아스트",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Shen",
+          "name": "쉔",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Nunu",
+          "name": "누누와 윌럼프",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "수호자의 맹세",
+            "적응형 투구",
+            "적응형 투구"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Blitzcrank",
+          "name": "블리츠크랭크",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Relic",
+          "name": "유물",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Fiora",
+          "name": "피오라",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "거인 학살자",
+            "밤의 끝자락",
+            "스테락의 도전"
+          ],
+          "isCarry": true,
+          "row": 1
+        },
+        {
+          "key": "Graves",
+          "name": "그레이브즈",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "거인 학살자",
+            "수은",
+            "죽음의 검"
+          ],
+          "isCarry": true,
+          "row": 2
+        },
+        {
+          "key": "Vex",
+          "name": "벡스",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "구인수의 격노검",
+            "붉은 덩굴정령",
+            "라바돈의 죽음모자"
+          ],
+          "isCarry": false,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "피오라",
+        "그레이브즈"
+      ],
+      "augments": [
+        "AuraFarming",
+        "LategameSpecialist",
+        "DuoQueue"
+      ],
+      "traits": [
+        {
+          "key": "NOVA",
+          "name": "N.O.V.A.",
+          "count": 2
+        },
+        {
+          "key": "Bastion",
+          "name": "요새",
+          "count": 2
+        },
+        {
+          "key": "Marauder",
+          "name": "습격자",
+          "count": 2
+        },
+        {
+          "key": "Vanguard",
+          "name": "선봉대",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
+      "style": "fast8"
+    },
+    {
       "id": "c03ee7467451e8b89b29e1357b5da7acf71ab665",
       "name": "[상징] 길잡이 르블랑",
       "tier": "normal",
@@ -2494,155 +2643,6 @@
         {
           "key": "Fateweaver",
           "name": "운명술사",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
-    {
-      "id": "0538e5e392caa05b41e302b18e0aefe2d04f6f95",
-      "name": "N.O.V.A. 그브 벡스",
-      "tier": "normal",
-      "teamCost": 105,
-      "units": [
-        {
-          "key": "Aatrox",
-          "name": "아트록스",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Akali",
-          "name": "아칼리",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Rhaast",
-          "name": "라아스트",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Shen",
-          "name": "쉔",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Nunu",
-          "name": "누누와 윌럼프",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "수호자의 맹세",
-            "적응형 투구",
-            "적응형 투구"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Blitzcrank",
-          "name": "블리츠크랭크",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Relic",
-          "name": "유물",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Fiora",
-          "name": "피오라",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "거인 학살자",
-            "밤의 끝자락",
-            "스테락의 도전"
-          ],
-          "isCarry": true,
-          "row": 1
-        },
-        {
-          "key": "Graves",
-          "name": "그레이브즈",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "거인 학살자",
-            "수은",
-            "죽음의 검"
-          ],
-          "isCarry": true,
-          "row": 2
-        },
-        {
-          "key": "Vex",
-          "name": "벡스",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "붉은 덩굴정령",
-            "라바돈의 죽음모자"
-          ],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "피오라",
-        "그레이브즈"
-      ],
-      "augments": [
-        "AuraFarming",
-        "LategameSpecialist",
-        "DuoQueue"
-      ],
-      "traits": [
-        {
-          "key": "NOVA",
-          "name": "N.O.V.A.",
-          "count": 2
-        },
-        {
-          "key": "Bastion",
-          "name": "요새",
-          "count": 2
-        },
-        {
-          "key": "Marauder",
-          "name": "습격자",
-          "count": 2
-        },
-        {
-          "key": "Vanguard",
-          "name": "선봉대",
           "count": 2
         }
       ],
