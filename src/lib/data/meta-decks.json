@@ -1,7 +1,7 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v17.6 (시즌 17)",
-  "updatedAt": "2026-07-06T20:50:03.210Z",
+  "updatedAt": "2026-07-07T20:47:52.188Z",
   "deckCount": 40,
   "decks": [
     {
@@ -595,128 +595,6 @@
       "style": "fast8"
     },
     {
-      "id": "9535d332315f2752e4ea51d656d30e056f1c88f1",
-      "name": "메카 아우솔 (동특)",
-      "tier": "hot",
-      "teamCost": 78,
-      "units": [
-        {
-          "key": "TheMightyMech",
-          "name": "거대 메크 로봇",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "가고일 돌갑옷",
-            "가고일 돌갑옷",
-            "사자의 비가"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Morgana",
-          "name": "모르가나",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "크라운가드"
-          ],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Karma",
-          "name": "카르마",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "모렐로노미콘",
-            "공허의 지팡이",
-            "적응형 투구"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "AurelionSol",
-          "name": "아우렐리온 솔",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "보석 건틀릿",
-            "라바돈의 죽음모자",
-            "절멸자"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Mordekaiser",
-          "name": "모데카이저",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Blitzcrank",
-          "name": "블리츠크랭크",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Rhaast",
-          "name": "라아스트",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "카르마",
-        "아우렐리온 솔"
-      ],
-      "augments": [
-        "AnimaCommander",
-        "ComebackStory",
-        "EpicRolldown"
-      ],
-      "traits": [
-        {
-          "key": "Mecha",
-          "name": "메카",
-          "count": 2
-        },
-        {
-          "key": "Voyager",
-          "name": "여행자",
-          "count": 2
-        },
-        {
-          "key": "DarkStar",
-          "name": "암흑의 별",
-          "count": 2
-        },
-        {
-          "key": "Channeler",
-          "name": "전달자",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
-    {
       "id": "0538e5e392caa05b41e302b18e0aefe2d04f6f95",
       "name": "N.O.V.A. 그브 벡스",
       "tier": "hot",
@@ -999,6 +877,128 @@
           "key": "Shepherd",
           "name": "길잡이",
           "count": 3
+        },
+        {
+          "key": "DarkStar",
+          "name": "암흑의 별",
+          "count": 2
+        },
+        {
+          "key": "Channeler",
+          "name": "전달자",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
+      "style": "fast8"
+    },
+    {
+      "id": "9535d332315f2752e4ea51d656d30e056f1c88f1",
+      "name": "메카 아우솔 (동특)",
+      "tier": "normal",
+      "teamCost": 78,
+      "units": [
+        {
+          "key": "TheMightyMech",
+          "name": "거대 메크 로봇",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "가고일 돌갑옷",
+            "가고일 돌갑옷",
+            "사자의 비가"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Morgana",
+          "name": "모르가나",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "크라운가드"
+          ],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Karma",
+          "name": "카르마",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "모렐로노미콘",
+            "공허의 지팡이",
+            "적응형 투구"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "AurelionSol",
+          "name": "아우렐리온 솔",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "보석 건틀릿",
+            "라바돈의 죽음모자",
+            "절멸자"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Mordekaiser",
+          "name": "모데카이저",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Blitzcrank",
+          "name": "블리츠크랭크",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Rhaast",
+          "name": "라아스트",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "카르마",
+        "아우렐리온 솔"
+      ],
+      "augments": [
+        "AnimaCommander",
+        "ComebackStory",
+        "EpicRolldown"
+      ],
+      "traits": [
+        {
+          "key": "Mecha",
+          "name": "메카",
+          "count": 2
+        },
+        {
+          "key": "Voyager",
+          "name": "여행자",
+          "count": 2
         },
         {
           "key": "DarkStar",
