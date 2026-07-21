@@ -1,7 +1,7 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v17.7 (시즌 17)",
-  "updatedAt": "2026-07-20T20:17:28.510Z",
+  "updatedAt": "2026-07-21T20:16:44.433Z",
   "deckCount": 42,
   "decks": [
     {
@@ -967,62 +967,22 @@
       "style": "fast8"
     },
     {
-      "id": "33f5dda4ef4cbf96f3204e963811ceeae3e72408",
-      "name": "[상징] 5동물특공대",
+      "id": "003cbe1151e781bdc2b2957c0adbc587ee68b8b4",
+      "name": "[상징] 5동물특공대 리롤",
       "tier": "normal",
-      "teamCost": 90,
+      "teamCost": 81,
       "units": [
         {
-          "key": "BiaBayin",
-          "name": "비아와 바이엔",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Rhaast",
-          "name": "라아스트",
+          "key": "Diana",
+          "name": "다이애나",
           "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Meepsie",
-          "name": "꼬마 정령",
-          "cost": 2,
-          "star": 2,
+          "star": 3,
           "items": [
-            "동물특공대 상징"
+            "피바라기",
+            "거인의 결의",
+            "밤의 끝자락"
           ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Blitzcrank",
-          "name": "블리츠크랭크",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "여행자 상징",
-            "도전자 상징"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Fiora",
-          "name": "피오라",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "여행자 상징",
-            "도전자 상징"
-          ],
-          "isCarry": false,
+          "isCarry": true,
           "row": 0
         },
         {
@@ -1039,42 +999,50 @@
           "row": 0
         },
         {
-          "key": "Diana",
-          "name": "다이애나",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "피바라기",
-            "거인의 결의",
-            "밤의 끝자락"
-          ],
-          "isCarry": true,
-          "row": 0
-        },
-        {
-          "key": "Aurora",
-          "name": "오로라",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "쇼진의 창",
-            "보석 건틀릿",
-            "인도의 저주"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Leblanc",
-          "name": "르블랑",
-          "cost": 4,
+          "key": "Fiora",
+          "name": "피오라",
+          "cost": 5,
           "star": 2,
           "items": [
             "여행자 상징",
-            "도전자 상징"
+            "도전자 상징",
+            "밤의 끝자락"
           ],
           "isCarry": false,
-          "row": 3
+          "row": 0
+        },
+        {
+          "key": "Blitzcrank",
+          "name": "블리츠크랭크",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "여행자 상징",
+            "도전자 상징",
+            "모렐로노미콘"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Meepsie",
+          "name": "꼬마 정령",
+          "cost": 2,
+          "star": 2,
+          "items": [
+            "동물특공대 상징"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "BiaBayin",
+          "name": "비아와 바이엔",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 0
         },
         {
           "key": "Jinx",
@@ -1087,6 +1055,30 @@
             "붉은 덩굴정령"
           ],
           "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Leblanc",
+          "name": "르블랑",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "여행자 상징"
+          ],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Aurora",
+          "name": "오로라",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "쇼진의 창",
+            "공허의 지팡이",
+            "도전자 상징"
+          ],
+          "isCarry": true,
           "row": 3
         }
       ],
@@ -1111,13 +1103,13 @@
           "count": 3
         },
         {
-          "key": "Voyager",
-          "name": "여행자",
+          "key": "Arbiter",
+          "name": "중재자",
           "count": 2
         },
         {
-          "key": "Vanguard",
-          "name": "선봉대",
+          "key": "Challenger",
+          "name": "도전자",
           "count": 2
         }
       ],
@@ -1125,51 +1117,53 @@
       "style": "fast8"
     },
     {
-      "id": "f8ea3a4d3a44f47334230548ae84bc08cd18041d",
-      "name": "5동물특공대 밸류",
+      "id": "64e74ff70850e6f9b5901c6ae5e75f8eca837609",
+      "name": "[상징] 5동물특공대 밸류",
       "tier": "normal",
-      "teamCost": 90,
+      "teamCost": 105,
       "units": [
-        {
-          "key": "Briar",
-          "name": "브라이어",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Jax",
-          "name": "잭스",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Nunu",
-          "name": "누누와 윌럼프",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "여행자 상징",
-            "수호자의 맹세",
-            "적응형 투구"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
         {
           "key": "Illaoi",
           "name": "일라오이",
           "cost": 3,
           "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Blitzcrank",
+          "name": "블리츠크랭크",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도전자 상징",
+            "여행자 상징",
+            "모렐로노미콘"
+          ],
+          "isCarry": true,
+          "row": 0
+        },
+        {
+          "key": "TheMightyMech",
+          "name": "거대 메크 로봇",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "동물특공대 상징"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Morgana",
+          "name": "모르가나",
+          "cost": 4,
+          "star": 2,
           "items": [
             "가고일 돌갑옷",
             "워모그의 갑옷",
-            "굳건한 심장"
+            "여행자 상징"
           ],
           "isCarry": false,
           "row": 0
@@ -1180,9 +1174,11 @@
           "cost": 5,
           "star": 2,
           "items": [
-            "도적의 장갑"
+            "도전자 상징",
+            "밤의 끝자락",
+            "피바라기"
           ],
-          "isCarry": false,
+          "isCarry": true,
           "row": 1
         },
         {
@@ -1195,28 +1191,25 @@
           "row": 3
         },
         {
+          "key": "Karma",
+          "name": "카르마",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
           "key": "Aurora",
           "name": "오로라",
           "cost": 3,
           "star": 2,
           "items": [
-            "붉은 덩굴정령",
+            "도전자 상징",
+            "쇼진의 창",
             "공허의 지팡이"
           ],
           "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Vex",
-          "name": "벡스",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "도전자 상징",
-            "여행자 상징"
-          ],
-          "isCarry": true,
           "row": 3
         },
         {
@@ -1226,16 +1219,16 @@
           "star": 2,
           "items": [
             "도전자 상징",
-            "수은",
+            "거인 학살자",
             "죽음의 검"
           ],
-          "isCarry": true,
+          "isCarry": false,
           "row": 3
         }
       ],
       "carries": [
-        "벡스",
-        "그레이브즈"
+        "블리츠크랭크",
+        "피오라"
       ],
       "augments": [
         "TheTraitTree",
@@ -1246,11 +1239,11 @@
         {
           "key": "Anima",
           "name": "동물특공대",
-          "count": 5
+          "count": 4
         },
         {
-          "key": "Stargazer",
-          "name": "별돌보미",
+          "key": "Voyager",
+          "name": "여행자",
           "count": 3
         },
         {
@@ -1259,8 +1252,8 @@
           "count": 2
         },
         {
-          "key": "Primordian",
-          "name": "태고족",
+          "key": "Shepherd",
+          "name": "길잡이",
           "count": 1
         }
       ],
@@ -2109,7 +2102,7 @@
     {
       "id": "edd8ec0f8e5d9963b53b73086b20867c3cb0c873",
       "name": "N.O.V.A. 그브 벡스",
-      "tier": "hot",
+      "tier": "normal",
       "teamCost": 99,
       "units": [
         {
