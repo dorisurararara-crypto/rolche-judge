@@ -1,677 +1,9 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v17.8 (시즌 17)",
-  "updatedAt": "2026-07-29T20:09:09.589Z",
+  "updatedAt": "2026-07-30T20:12:00.613Z",
   "deckCount": 43,
   "decks": [
-    {
-      "id": "984ddc53b74beb2bcc3accd4ee789c0057d60277",
-      "name": "[쌍두마차] 사미라",
-      "tier": "normal",
-      "teamCost": 81,
-      "units": [
-        {
-          "key": "Nasus",
-          "name": "나서스",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Ornn",
-          "name": "오른",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": true,
-          "row": 0
-        },
-        {
-          "key": "Blitzcrank",
-          "name": "블리츠크랭크",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Ornn",
-          "name": "오른",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "굳건한 심장"
-          ],
-          "isCarry": true,
-          "row": 0
-        },
-        {
-          "key": "Jhin",
-          "name": "진",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Samira",
-          "name": "사미라",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Nami",
-          "name": "나미",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "모렐로노미콘"
-          ],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Samira",
-          "name": "사미라",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "쇼진의 창",
-            "무한의 대검",
-            "타격대의 철퇴"
-          ],
-          "isCarry": true,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "오른",
-        "오른",
-        "사미라",
-        "사미라"
-      ],
-      "augments": [
-        "TwoTanky",
-        "Commander_RollingForDays",
-        "BigGrabBag"
-      ],
-      "traits": [
-        {
-          "key": "SpaceGroove",
-          "name": "우주 그루브",
-          "count": 7
-        },
-        {
-          "key": "Sniper",
-          "name": "저격수",
-          "count": 3
-        },
-        {
-          "key": "Vanguard",
-          "name": "선봉대",
-          "count": 2
-        },
-        {
-          "key": "Bastion",
-          "name": "요새",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
-    {
-      "id": "fd2ed0f6cbc3fb4e5110631e0a6fc767c5d66ebf",
-      "name": "[상징] 우주 그루브 나미",
-      "tier": "hot",
-      "teamCost": 99,
-      "units": [
-        {
-          "key": "TahmKench",
-          "name": "탐 켄치",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "우주 그루브 상징",
-            "가고일 돌갑옷",
-            "워모그의 갑옷"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Nunu",
-          "name": "누누와 윌럼프",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Pantheon",
-          "name": "판테온",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Blitzcrank",
-          "name": "블리츠크랭크",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "피바라기",
-            "모렐로노미콘",
-            "이온 충격기"
-          ],
-          "isCarry": true,
-          "row": 1
-        },
-        {
-          "key": "Relic",
-          "name": "유물",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Ornn",
-          "name": "오른",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Riven",
-          "name": "리븐",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Shen",
-          "name": "쉔",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Nami",
-          "name": "나미",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "보석 건틀릿",
-            "내셔의 이빨",
-            "내셔의 이빨"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Gwen",
-          "name": "그웬",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "블리츠크랭크",
-        "나미"
-      ],
-      "augments": [
-        "SpreadingRoots",
-        "Commander_Ascension",
-        "EpicRolldown"
-      ],
-      "traits": [
-        {
-          "key": "SpaceGroove",
-          "name": "우주 그루브",
-          "count": 4
-        },
-        {
-          "key": "Timebreaker",
-          "name": "시간 균열자",
-          "count": 3
-        },
-        {
-          "key": "Brawler",
-          "name": "싸움꾼",
-          "count": 2
-        },
-        {
-          "key": "Vanguard",
-          "name": "선봉대",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
-    {
-      "id": "25719630162b845b46158d7ebae76803a8a62c6a",
-      "name": "N.O.V.A 업칼리",
-      "tier": "hot",
-      "teamCost": 63,
-      "units": [
-        {
-          "key": "Morgana",
-          "name": "모르가나",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "크라운가드",
-            "워모그의 갑옷",
-            "가고일 돌갑옷"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "TahmKench",
-          "name": "탐 켄치",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "굳건한 심장",
-            "정령의 형상",
-            "워모그의 갑옷"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Maokai",
-          "name": "마오카이",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Aatrox",
-          "name": "아트록스",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "BelVeth",
-          "name": "벨베스",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Kindred",
-          "name": "킨드레드",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "크라켄의 분노",
-            "타격대의 철퇴"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Akali",
-          "name": "아칼리",
-          "cost": 2,
-          "star": 2,
-          "items": [
-            "마법공학 총검",
-            "타격대의 철퇴",
-            "스테락의 도전"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Caitlyn",
-          "name": "케이틀린",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "킨드레드",
-        "아칼리"
-      ],
-      "augments": [
-        "CarveAPath",
-        "BigGrabBag",
-        "EpicRolldown"
-      ],
-      "traits": [
-        {
-          "key": "NOVA",
-          "name": "N.O.V.A.",
-          "count": 5
-        },
-        {
-          "key": "Brawler",
-          "name": "싸움꾼",
-          "count": 2
-        },
-        {
-          "key": "Challenger",
-          "name": "도전자",
-          "count": 2
-        },
-        {
-          "key": "Marauder",
-          "name": "습격자",
-          "count": 2
-        }
-      ],
-      "topCost": 4,
-      "style": "fast8"
-    },
-    {
-      "id": "2daeea047775d71a89c24c63be514323c79297c4",
-      "name": "N.O.V.A 아칼리 리롤",
-      "tier": "hot",
-      "teamCost": 57,
-      "units": [
-        {
-          "key": "Jax",
-          "name": "잭스",
-          "cost": 2,
-          "star": 3,
-          "items": [
-            "가고일 돌갑옷",
-            "가고일 돌갑옷",
-            "수호자의 맹세"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Morgana",
-          "name": "모르가나",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Maokai",
-          "name": "마오카이",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Aatrox",
-          "name": "아트록스",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Kindred",
-          "name": "킨드레드",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "크라켄의 분노",
-            "타격대의 철퇴"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Akali",
-          "name": "아칼리",
-          "cost": 2,
-          "star": 3,
-          "items": [
-            "마법공학 총검",
-            "타격대의 철퇴",
-            "무한의 대검"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "BelVeth",
-          "name": "벨베스",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Caitlyn",
-          "name": "케이틀린",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "킨드레드",
-        "아칼리"
-      ],
-      "augments": [
-        "Commander_RollingForDays",
-        "SwordOverflow",
-        "Swordsmith"
-      ],
-      "traits": [
-        {
-          "key": "NOVA",
-          "name": "N.O.V.A.",
-          "count": 5
-        },
-        {
-          "key": "Bastion",
-          "name": "요새",
-          "count": 2
-        },
-        {
-          "key": "Challenger",
-          "name": "도전자",
-          "count": 2
-        },
-        {
-          "key": "Marauder",
-          "name": "습격자",
-          "count": 2
-        }
-      ],
-      "topCost": 4,
-      "style": "fast8"
-    },
-    {
-      "id": "edd8ec0f8e5d9963b53b73086b20867c3cb0c873",
-      "name": "N.O.V.A. 그브 벡스",
-      "tier": "normal",
-      "teamCost": 99,
-      "units": [
-        {
-          "key": "Aatrox",
-          "name": "아트록스",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Jax",
-          "name": "잭스",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Akali",
-          "name": "아칼리",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Blitzcrank",
-          "name": "블리츠크랭크",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Nunu",
-          "name": "누누와 윌럼프",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "수호자의 맹세",
-            "적응형 투구",
-            "적응형 투구"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Morgana",
-          "name": "모르가나",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "크라운가드"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Fiora",
-          "name": "피오라",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Graves",
-          "name": "그레이브즈",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "거인 학살자",
-            "수은",
-            "타격대의 철퇴"
-          ],
-          "isCarry": true,
-          "row": 2
-        },
-        {
-          "key": "Vex",
-          "name": "벡스",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "붉은 덩굴정령",
-            "라바돈의 죽음모자"
-          ],
-          "isCarry": true,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "그레이브즈",
-        "벡스"
-      ],
-      "augments": [
-        "BirthdayReunion",
-        "LategameSpecialist",
-        "GildedSteel"
-      ],
-      "traits": [
-        {
-          "key": "Stargazer",
-          "name": "별돌보미",
-          "count": 3
-        },
-        {
-          "key": "NOVA",
-          "name": "N.O.V.A.",
-          "count": 2
-        },
-        {
-          "key": "Bastion",
-          "name": "요새",
-          "count": 2
-        },
-        {
-          "key": "Marauder",
-          "name": "습격자",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
     {
       "id": "5b44b33e3b3d138d244ec72b82a6a095ecc4479a",
       "name": "메카 아우솔 (동특)",
@@ -1048,6 +380,547 @@
         }
       ],
       "topCost": 4,
+      "style": "fast8"
+    },
+    {
+      "id": "fd2ed0f6cbc3fb4e5110631e0a6fc767c5d66ebf",
+      "name": "[상징] 우주 그루브 나미",
+      "tier": "hot",
+      "teamCost": 99,
+      "units": [
+        {
+          "key": "TahmKench",
+          "name": "탐 켄치",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "우주 그루브 상징",
+            "가고일 돌갑옷",
+            "워모그의 갑옷"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Nunu",
+          "name": "누누와 윌럼프",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Pantheon",
+          "name": "판테온",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Blitzcrank",
+          "name": "블리츠크랭크",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "피바라기",
+            "모렐로노미콘",
+            "이온 충격기"
+          ],
+          "isCarry": true,
+          "row": 1
+        },
+        {
+          "key": "Relic",
+          "name": "유물",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Ornn",
+          "name": "오른",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Riven",
+          "name": "리븐",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Shen",
+          "name": "쉔",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Nami",
+          "name": "나미",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "보석 건틀릿",
+            "내셔의 이빨",
+            "내셔의 이빨"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Gwen",
+          "name": "그웬",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "블리츠크랭크",
+        "나미"
+      ],
+      "augments": [
+        "SpreadingRoots",
+        "Commander_Ascension",
+        "EpicRolldown"
+      ],
+      "traits": [
+        {
+          "key": "SpaceGroove",
+          "name": "우주 그루브",
+          "count": 4
+        },
+        {
+          "key": "Timebreaker",
+          "name": "시간 균열자",
+          "count": 3
+        },
+        {
+          "key": "Brawler",
+          "name": "싸움꾼",
+          "count": 2
+        },
+        {
+          "key": "Vanguard",
+          "name": "선봉대",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
+      "style": "fast8"
+    },
+    {
+      "id": "25719630162b845b46158d7ebae76803a8a62c6a",
+      "name": "N.O.V.A 업칼리",
+      "tier": "hot",
+      "teamCost": 63,
+      "units": [
+        {
+          "key": "Morgana",
+          "name": "모르가나",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "크라운가드",
+            "워모그의 갑옷",
+            "가고일 돌갑옷"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "TahmKench",
+          "name": "탐 켄치",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "굳건한 심장",
+            "정령의 형상",
+            "워모그의 갑옷"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Maokai",
+          "name": "마오카이",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Aatrox",
+          "name": "아트록스",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "BelVeth",
+          "name": "벨베스",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Kindred",
+          "name": "킨드레드",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "구인수의 격노검",
+            "크라켄의 분노",
+            "타격대의 철퇴"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Akali",
+          "name": "아칼리",
+          "cost": 2,
+          "star": 2,
+          "items": [
+            "마법공학 총검",
+            "타격대의 철퇴",
+            "스테락의 도전"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Caitlyn",
+          "name": "케이틀린",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "킨드레드",
+        "아칼리"
+      ],
+      "augments": [
+        "CarveAPath",
+        "BigGrabBag",
+        "EpicRolldown"
+      ],
+      "traits": [
+        {
+          "key": "NOVA",
+          "name": "N.O.V.A.",
+          "count": 5
+        },
+        {
+          "key": "Brawler",
+          "name": "싸움꾼",
+          "count": 2
+        },
+        {
+          "key": "Challenger",
+          "name": "도전자",
+          "count": 2
+        },
+        {
+          "key": "Marauder",
+          "name": "습격자",
+          "count": 2
+        }
+      ],
+      "topCost": 4,
+      "style": "fast8"
+    },
+    {
+      "id": "2daeea047775d71a89c24c63be514323c79297c4",
+      "name": "N.O.V.A 아칼리 리롤",
+      "tier": "normal",
+      "teamCost": 57,
+      "units": [
+        {
+          "key": "Jax",
+          "name": "잭스",
+          "cost": 2,
+          "star": 3,
+          "items": [
+            "가고일 돌갑옷",
+            "가고일 돌갑옷",
+            "수호자의 맹세"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Morgana",
+          "name": "모르가나",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Maokai",
+          "name": "마오카이",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Aatrox",
+          "name": "아트록스",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Kindred",
+          "name": "킨드레드",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "구인수의 격노검",
+            "크라켄의 분노",
+            "타격대의 철퇴"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Akali",
+          "name": "아칼리",
+          "cost": 2,
+          "star": 3,
+          "items": [
+            "마법공학 총검",
+            "타격대의 철퇴",
+            "무한의 대검"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "BelVeth",
+          "name": "벨베스",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Caitlyn",
+          "name": "케이틀린",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "킨드레드",
+        "아칼리"
+      ],
+      "augments": [
+        "Commander_RollingForDays",
+        "SwordOverflow",
+        "Swordsmith"
+      ],
+      "traits": [
+        {
+          "key": "NOVA",
+          "name": "N.O.V.A.",
+          "count": 5
+        },
+        {
+          "key": "Bastion",
+          "name": "요새",
+          "count": 2
+        },
+        {
+          "key": "Challenger",
+          "name": "도전자",
+          "count": 2
+        },
+        {
+          "key": "Marauder",
+          "name": "습격자",
+          "count": 2
+        }
+      ],
+      "topCost": 4,
+      "style": "fast8"
+    },
+    {
+      "id": "edd8ec0f8e5d9963b53b73086b20867c3cb0c873",
+      "name": "N.O.V.A. 그브 벡스",
+      "tier": "normal",
+      "teamCost": 99,
+      "units": [
+        {
+          "key": "Aatrox",
+          "name": "아트록스",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Jax",
+          "name": "잭스",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Akali",
+          "name": "아칼리",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Blitzcrank",
+          "name": "블리츠크랭크",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Nunu",
+          "name": "누누와 윌럼프",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "수호자의 맹세",
+            "적응형 투구",
+            "적응형 투구"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Morgana",
+          "name": "모르가나",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "크라운가드"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Fiora",
+          "name": "피오라",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Graves",
+          "name": "그레이브즈",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "거인 학살자",
+            "수은",
+            "타격대의 철퇴"
+          ],
+          "isCarry": true,
+          "row": 2
+        },
+        {
+          "key": "Vex",
+          "name": "벡스",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "구인수의 격노검",
+            "붉은 덩굴정령",
+            "라바돈의 죽음모자"
+          ],
+          "isCarry": true,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "그레이브즈",
+        "벡스"
+      ],
+      "augments": [
+        "BirthdayReunion",
+        "LategameSpecialist",
+        "GildedSteel"
+      ],
+      "traits": [
+        {
+          "key": "Stargazer",
+          "name": "별돌보미",
+          "count": 3
+        },
+        {
+          "key": "NOVA",
+          "name": "N.O.V.A.",
+          "count": 2
+        },
+        {
+          "key": "Bastion",
+          "name": "요새",
+          "count": 2
+        },
+        {
+          "key": "Marauder",
+          "name": "습격자",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
       "style": "fast8"
     },
     {
@@ -1614,26 +1487,400 @@
       "style": "fast8"
     },
     {
-      "id": "7c42006c690e5da5fbf678a0e7761b9e2b4eed67",
-      "name": "정령족 리롤 베이가",
+      "id": "cada5ea80f01e7f13f023f80ec748cdf5275635f",
+      "name": "전달자 미스 포츈",
       "tier": "normal",
-      "teamCost": 57,
+      "teamCost": 66,
       "units": [
         {
-          "key": "BiaBayin",
-          "name": "비아와 바이엔",
-          "cost": 0,
-          "star": 1,
+          "key": "Ornn",
+          "name": "오른",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "굳건한 심장"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Rhaast",
+          "name": "라아스트",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Gragas",
+          "name": "그라가스",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Maokai",
+          "name": "마오카이",
+          "cost": 3,
+          "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Morgana",
+          "name": "모르가나",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Aatrox",
+          "name": "아트록스",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "MissFortune",
+          "name": "미스 포츈",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "무한의 대검",
+            "타격대의 철퇴",
+            "죽음의 검"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Viktor",
+          "name": "빅토르",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "드론 업링크",
+            "보석 건틀릿",
+            "라바돈의 죽음모자"
+          ],
+          "isCarry": true,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "미스 포츈",
+        "빅토르"
+      ],
+      "augments": [
+        "GachaAddict",
+        "LegionofThrees",
+        "TrifectaI"
+      ],
+      "traits": [
+        {
+          "key": "Bastion",
+          "name": "요새",
+          "count": 2
+        },
+        {
+          "key": "Psionic",
+          "name": "초능력",
+          "count": 2
+        },
+        {
+          "key": "Brawler",
+          "name": "싸움꾼",
+          "count": 2
+        },
+        {
+          "key": "NOVA",
+          "name": "N.O.V.A.",
+          "count": 2
+        }
+      ],
+      "topCost": 4,
+      "style": "fast8"
+    },
+    {
+      "id": "c061771fab6c0fcf87b96dd263e9a65d2ecd8689",
+      "name": "도전자 미스 포츈",
+      "tier": "normal",
+      "teamCost": 66,
+      "units": [
+        {
+          "key": "Urgot",
+          "name": "우르곳",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "피바라기",
+            "스테락의 도전",
+            "거인 학살자"
+          ],
+          "isCarry": true,
+          "row": 0
+        },
+        {
+          "key": "Ornn",
+          "name": "오른",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "워모그의 갑옷"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Rhaast",
+          "name": "라아스트",
+          "cost": 3,
+          "star": 3,
           "items": [],
           "isCarry": false,
           "row": 0
         },
         {
-          "key": "Mordekaiser",
-          "name": "모데카이저",
+          "key": "BelVeth",
+          "name": "벨베스",
           "cost": 2,
           "star": 2,
           "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Maokai",
+          "name": "마오카이",
+          "cost": 3,
+          "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Aatrox",
+          "name": "아트록스",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "MissFortune",
+          "name": "미스 포츈",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "무한의 대검",
+            "죽음의 검",
+            "구인수의 격노검"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Kindred",
+          "name": "킨드레드",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "우르곳",
+        "미스 포츈"
+      ],
+      "augments": [
+        "LegionofThrees",
+        "TreasureHunt",
+        "Swordsmith"
+      ],
+      "traits": [
+        {
+          "key": "NOVA",
+          "name": "N.O.V.A.",
+          "count": 3
+        },
+        {
+          "key": "Brawler",
+          "name": "싸움꾼",
+          "count": 2
+        },
+        {
+          "key": "Marauder",
+          "name": "습격자",
+          "count": 2
+        },
+        {
+          "key": "Bastion",
+          "name": "요새",
+          "count": 2
+        }
+      ],
+      "topCost": 4,
+      "style": "fast8"
+    },
+    {
+      "id": "984ddc53b74beb2bcc3accd4ee789c0057d60277",
+      "name": "[쌍두마차] 사미라",
+      "tier": "normal",
+      "teamCost": 81,
+      "units": [
+        {
+          "key": "Nasus",
+          "name": "나서스",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Ornn",
+          "name": "오른",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": true,
+          "row": 0
+        },
+        {
+          "key": "Blitzcrank",
+          "name": "블리츠크랭크",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Ornn",
+          "name": "오른",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "굳건한 심장"
+          ],
+          "isCarry": true,
+          "row": 0
+        },
+        {
+          "key": "Jhin",
+          "name": "진",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Samira",
+          "name": "사미라",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Nami",
+          "name": "나미",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "모렐로노미콘"
+          ],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Samira",
+          "name": "사미라",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "쇼진의 창",
+            "무한의 대검",
+            "타격대의 철퇴"
+          ],
+          "isCarry": true,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "오른",
+        "오른",
+        "사미라",
+        "사미라"
+      ],
+      "augments": [
+        "TwoTanky",
+        "Commander_RollingForDays",
+        "BigGrabBag"
+      ],
+      "traits": [
+        {
+          "key": "SpaceGroove",
+          "name": "우주 그루브",
+          "count": 7
+        },
+        {
+          "key": "Sniper",
+          "name": "저격수",
+          "count": 3
+        },
+        {
+          "key": "Vanguard",
+          "name": "선봉대",
+          "count": 2
+        },
+        {
+          "key": "Bastion",
+          "name": "요새",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
+      "style": "fast8"
+    },
+    {
+      "id": "008cfe6ab472b26fd8db2c7755f36b5f32ed86d3",
+      "name": "[상징] 길잡이 르블랑",
+      "tier": "normal",
+      "teamCost": 75,
+      "units": [
+        {
+          "key": "Morgana",
+          "name": "모르가나",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "수호자의 맹세",
+            "워모그의 갑옷",
+            "가고일 돌갑옷"
+          ],
           "isCarry": false,
           "row": 0
         },
@@ -1647,10 +1894,10 @@
           "row": 0
         },
         {
-          "key": "Poppy",
-          "name": "뽀삐",
-          "cost": 1,
-          "star": 3,
+          "key": "BiaBayin",
+          "name": "비아와 바이엔",
+          "cost": 0,
+          "star": 1,
           "items": [],
           "isCarry": false,
           "row": 0
@@ -1665,34 +1912,47 @@
           "row": 0
         },
         {
-          "key": "Rammus",
-          "name": "람머스",
-          "cost": 4,
-          "star": 2,
+          "key": "Leona",
+          "name": "레오나",
+          "cost": 1,
+          "star": 3,
           "items": [
             "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "덤불 조끼"
+            "가고일 돌갑옷",
+            "워모그의 갑옷"
           ],
           "isCarry": false,
           "row": 0
         },
         {
-          "key": "Lissandra",
-          "name": "리산드라",
-          "cost": 1,
-          "star": 3,
+          "key": "Leblanc",
+          "name": "르블랑",
+          "cost": 4,
+          "star": 2,
           "items": [
-            "모렐로노미콘",
-            "공허의 지팡이",
-            "적응형 투구"
+            "구인수의 격노검",
+            "라바돈의 죽음모자",
+            "보석 건틀릿"
           ],
           "isCarry": true,
           "row": 3
         },
         {
-          "key": "Bard",
-          "name": "바드",
+          "key": "Karma",
+          "name": "카르마",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "모렐로노미콘",
+            "공허의 지팡이",
+            "길잡이 상징"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Sona",
+          "name": "소나",
           "cost": 5,
           "star": 2,
           "items": [],
@@ -1700,47 +1960,52 @@
           "row": 3
         },
         {
-          "key": "Veigar",
-          "name": "베이가",
+          "key": "Lissandra",
+          "name": "리산드라",
           "cost": 1,
-          "star": 3,
-          "items": [
-            "푸른 파수꾼",
-            "라바돈의 죽음모자",
-            "라바돈의 죽음모자"
-          ],
-          "isCarry": true,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Teemo",
+          "name": "티모",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
           "row": 3
         }
       ],
       "carries": [
-        "리산드라",
-        "베이가"
+        "르블랑",
+        "카르마"
       ],
       "augments": [
-        "DeadlierCaps",
-        "Staffsmith",
-        "WandOverflow"
+        "SpreadingRoots",
+        "BigGrabBag",
+        "JeweledLotus"
       ],
       "traits": [
         {
-          "key": "Meeple",
-          "name": "정령족",
-          "count": 5
-        },
-        {
           "key": "Shepherd",
           "name": "길잡이",
-          "count": 3
+          "count": 6
         },
         {
-          "key": "DarkStar",
-          "name": "암흑의 별",
+          "key": "Voyager",
+          "name": "여행자",
           "count": 2
         },
         {
-          "key": "Channeler",
-          "name": "전달자",
+          "key": "Vanguard",
+          "name": "선봉대",
+          "count": 2
+        },
+        {
+          "key": "Arbiter",
+          "name": "중재자",
           "count": 2
         }
       ],
@@ -2064,92 +2329,99 @@
       "style": "fast8"
     },
     {
-      "id": "cada5ea80f01e7f13f023f80ec748cdf5275635f",
-      "name": "전달자 미스 포츈",
+      "id": "7c42006c690e5da5fbf678a0e7761b9e2b4eed67",
+      "name": "정령족 리롤 베이가",
       "tier": "normal",
-      "teamCost": 66,
+      "teamCost": 57,
       "units": [
         {
-          "key": "Ornn",
-          "name": "오른",
-          "cost": 3,
+          "key": "BiaBayin",
+          "name": "비아와 바이엔",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Mordekaiser",
+          "name": "모데카이저",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Meepsie",
+          "name": "꼬마 정령",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Poppy",
+          "name": "뽀삐",
+          "cost": 1,
           "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Illaoi",
+          "name": "일라오이",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Rammus",
+          "name": "람머스",
+          "cost": 4,
+          "star": 2,
           "items": [
             "가고일 돌갑옷",
             "워모그의 갑옷",
-            "굳건한 심장"
+            "덤불 조끼"
           ],
           "isCarry": false,
           "row": 0
         },
         {
-          "key": "Rhaast",
-          "name": "라아스트",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Gragas",
-          "name": "그라가스",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Maokai",
-          "name": "마오카이",
-          "cost": 3,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Morgana",
-          "name": "모르가나",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Aatrox",
-          "name": "아트록스",
+          "key": "Lissandra",
+          "name": "리산드라",
           "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "MissFortune",
-          "name": "미스 포츈",
-          "cost": 3,
           "star": 3,
           "items": [
-            "무한의 대검",
-            "타격대의 철퇴",
-            "죽음의 검"
+            "모렐로노미콘",
+            "공허의 지팡이",
+            "적응형 투구"
           ],
           "isCarry": true,
           "row": 3
         },
         {
-          "key": "Viktor",
-          "name": "빅토르",
-          "cost": 3,
+          "key": "Bard",
+          "name": "바드",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Veigar",
+          "name": "베이가",
+          "cost": 1,
           "star": 3,
           "items": [
-            "드론 업링크",
-            "보석 건틀릿",
+            "푸른 파수꾼",
+            "라바돈의 죽음모자",
             "라바돈의 죽음모자"
           ],
           "isCarry": true,
@@ -2157,162 +2429,37 @@
         }
       ],
       "carries": [
-        "미스 포츈",
-        "빅토르"
+        "리산드라",
+        "베이가"
       ],
       "augments": [
-        "GachaAddict",
-        "LegionofThrees",
-        "TrifectaI"
+        "DeadlierCaps",
+        "Staffsmith",
+        "WandOverflow"
       ],
       "traits": [
         {
-          "key": "Bastion",
-          "name": "요새",
-          "count": 2
+          "key": "Meeple",
+          "name": "정령족",
+          "count": 5
         },
         {
-          "key": "Psionic",
-          "name": "초능력",
-          "count": 2
-        },
-        {
-          "key": "Brawler",
-          "name": "싸움꾼",
-          "count": 2
-        },
-        {
-          "key": "NOVA",
-          "name": "N.O.V.A.",
-          "count": 2
-        }
-      ],
-      "topCost": 4,
-      "style": "fast8"
-    },
-    {
-      "id": "c061771fab6c0fcf87b96dd263e9a65d2ecd8689",
-      "name": "도전자 미스 포츈",
-      "tier": "normal",
-      "teamCost": 66,
-      "units": [
-        {
-          "key": "Urgot",
-          "name": "우르곳",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "피바라기",
-            "스테락의 도전",
-            "거인 학살자"
-          ],
-          "isCarry": true,
-          "row": 0
-        },
-        {
-          "key": "Ornn",
-          "name": "오른",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "워모그의 갑옷"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Rhaast",
-          "name": "라아스트",
-          "cost": 3,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "BelVeth",
-          "name": "벨베스",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Maokai",
-          "name": "마오카이",
-          "cost": 3,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Aatrox",
-          "name": "아트록스",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "MissFortune",
-          "name": "미스 포츈",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "무한의 대검",
-            "죽음의 검",
-            "구인수의 격노검"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Kindred",
-          "name": "킨드레드",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "우르곳",
-        "미스 포츈"
-      ],
-      "augments": [
-        "LegionofThrees",
-        "TreasureHunt",
-        "Swordsmith"
-      ],
-      "traits": [
-        {
-          "key": "NOVA",
-          "name": "N.O.V.A.",
+          "key": "Shepherd",
+          "name": "길잡이",
           "count": 3
         },
         {
-          "key": "Brawler",
-          "name": "싸움꾼",
+          "key": "DarkStar",
+          "name": "암흑의 별",
           "count": 2
         },
         {
-          "key": "Marauder",
-          "name": "습격자",
-          "count": 2
-        },
-        {
-          "key": "Bastion",
-          "name": "요새",
+          "key": "Channeler",
+          "name": "전달자",
           "count": 2
         }
       ],
-      "topCost": 4,
+      "topCost": 5,
       "style": "fast8"
     },
     {
@@ -2715,112 +2862,98 @@
       "style": "reroll"
     },
     {
-      "id": "008cfe6ab472b26fd8db2c7755f36b5f32ed86d3",
-      "name": "[상징] 길잡이 르블랑",
+      "id": "fe0b74f2d8a06ad48de822cc10b7cbb5ebfbec27",
+      "name": "별돌보미 트페 (메달/산)",
       "tier": "normal",
-      "teamCost": 75,
+      "teamCost": 48,
       "units": [
         {
-          "key": "Morgana",
-          "name": "모르가나",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "수호자의 맹세",
-            "워모그의 갑옷",
-            "가고일 돌갑옷"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Meepsie",
-          "name": "꼬마 정령",
+          "key": "Jax",
+          "name": "잭스",
           "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "BiaBayin",
-          "name": "비아와 바이엔",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Illaoi",
-          "name": "일라오이",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Leona",
-          "name": "레오나",
-          "cost": 1,
           "star": 3,
           "items": [
             "가고일 돌갑옷",
             "가고일 돌갑옷",
-            "워모그의 갑옷"
+            "크라운가드"
           ],
           "isCarry": false,
           "row": 0
         },
         {
-          "key": "Leblanc",
-          "name": "르블랑",
+          "key": "Talon",
+          "name": "탈론",
+          "cost": 1,
+          "star": 3,
+          "items": [
+            "쇼진의 창",
+            "마법공학 총검",
+            "밤의 끝자락"
+          ],
+          "isCarry": true,
+          "row": 2
+        },
+        {
+          "key": "Riven",
+          "name": "리븐",
           "cost": 4,
           "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Aatrox",
+          "name": "아트록스",
+          "cost": 1,
+          "star": 3,
+          "items": [
+            "태양불꽃 망토"
+          ],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "TwistedFate",
+          "name": "트위스티드 페이트",
+          "cost": 1,
+          "star": 3,
+          "items": [
+            "내셔의 이빨",
+            "내셔의 이빨",
+            "라바돈의 죽음모자"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Caitlyn",
+          "name": "케이틀린",
+          "cost": 1,
+          "star": 3,
           "items": [
             "구인수의 격노검",
-            "라바돈의 죽음모자",
-            "보석 건틀릿"
+            "죽음의 검",
+            "거인 학살자"
           ],
-          "isCarry": true,
+          "isCarry": false,
           "row": 3
         },
         {
-          "key": "Karma",
-          "name": "카르마",
+          "key": "Milio",
+          "name": "밀리오",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Corki",
+          "name": "코르키",
           "cost": 4,
-          "star": 2,
-          "items": [
-            "모렐로노미콘",
-            "공허의 지팡이",
-            "길잡이 상징"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Sona",
-          "name": "소나",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Lissandra",
-          "name": "리산드라",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Teemo",
-          "name": "티모",
-          "cost": 1,
           "star": 2,
           "items": [],
           "isCarry": false,
@@ -2828,37 +2961,37 @@
         }
       ],
       "carries": [
-        "르블랑",
-        "카르마"
+        "탈론",
+        "트위스티드 페이트"
       ],
       "augments": [
-        "SpreadingRoots",
-        "BigGrabBag",
-        "JeweledLotus"
+        "GachaAddict",
+        "SalvageBinPlus",
+        "ArcaneViktory"
       ],
       "traits": [
         {
-          "key": "Shepherd",
-          "name": "길잡이",
-          "count": 6
+          "key": "Fateweaver",
+          "name": "운명술사",
+          "count": 4
         },
         {
-          "key": "Voyager",
-          "name": "여행자",
+          "key": "Stargazer",
+          "name": "별돌보미",
+          "count": 3
+        },
+        {
+          "key": "Bastion",
+          "name": "요새",
           "count": 2
         },
         {
-          "key": "Vanguard",
-          "name": "선봉대",
-          "count": 2
-        },
-        {
-          "key": "Arbiter",
-          "name": "중재자",
+          "key": "Rogue",
+          "name": "불한당",
           "count": 2
         }
       ],
-      "topCost": 5,
+      "topCost": 4,
       "style": "fast8"
     },
     {
@@ -2997,139 +3130,6 @@
         }
       ],
       "topCost": 5,
-      "style": "fast8"
-    },
-    {
-      "id": "fe0b74f2d8a06ad48de822cc10b7cbb5ebfbec27",
-      "name": "별돌보미 트페 (메달/산)",
-      "tier": "normal",
-      "teamCost": 48,
-      "units": [
-        {
-          "key": "Jax",
-          "name": "잭스",
-          "cost": 2,
-          "star": 3,
-          "items": [
-            "가고일 돌갑옷",
-            "가고일 돌갑옷",
-            "크라운가드"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Talon",
-          "name": "탈론",
-          "cost": 1,
-          "star": 3,
-          "items": [
-            "쇼진의 창",
-            "마법공학 총검",
-            "밤의 끝자락"
-          ],
-          "isCarry": true,
-          "row": 2
-        },
-        {
-          "key": "Riven",
-          "name": "리븐",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Aatrox",
-          "name": "아트록스",
-          "cost": 1,
-          "star": 3,
-          "items": [
-            "태양불꽃 망토"
-          ],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "TwistedFate",
-          "name": "트위스티드 페이트",
-          "cost": 1,
-          "star": 3,
-          "items": [
-            "내셔의 이빨",
-            "내셔의 이빨",
-            "라바돈의 죽음모자"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Caitlyn",
-          "name": "케이틀린",
-          "cost": 1,
-          "star": 3,
-          "items": [
-            "구인수의 격노검",
-            "죽음의 검",
-            "거인 학살자"
-          ],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Milio",
-          "name": "밀리오",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Corki",
-          "name": "코르키",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "탈론",
-        "트위스티드 페이트"
-      ],
-      "augments": [
-        "GachaAddict",
-        "SalvageBinPlus",
-        "ArcaneViktory"
-      ],
-      "traits": [
-        {
-          "key": "Fateweaver",
-          "name": "운명술사",
-          "count": 4
-        },
-        {
-          "key": "Stargazer",
-          "name": "별돌보미",
-          "count": 3
-        },
-        {
-          "key": "Bastion",
-          "name": "요새",
-          "count": 2
-        },
-        {
-          "key": "Rogue",
-          "name": "불한당",
-          "count": 2
-        }
-      ],
-      "topCost": 4,
       "style": "fast8"
     },
     {
