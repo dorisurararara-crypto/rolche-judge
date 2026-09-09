@@ -1,28 +1,15 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v18.1d (시즌 18)",
-  "updatedAt": "2026-09-08T21:32:16.436Z",
-  "deckCount": 23,
+  "updatedAt": "2026-09-09T21:28:37.832Z",
+  "deckCount": 22,
   "decks": [
     {
-      "id": "2462b2b48a7a524403f4832a52caca63502d3ccb",
-      "name": "[유물] 적응가 마스터 이",
+      "id": "8f3c6a3c52d9dec5652e003545f21bae61dfb69a",
+      "name": "[유물] 마스터 이 렝가",
       "tier": "hot",
       "teamCost": 63,
       "units": [
-        {
-          "key": "Vi",
-          "name": "바이",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "정령의 형상"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
         {
           "key": "Krug",
           "name": "돌거북",
@@ -39,6 +26,54 @@
           "star": 2,
           "items": [],
           "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Yorick",
+          "name": "요릭",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Rengar",
+          "name": "렝가",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "구인수의 격노검",
+            "밤의 끝자락",
+            "거인의 결의"
+          ],
+          "isCarry": true,
+          "row": 0
+        },
+        {
+          "key": "Vi",
+          "name": "바이",
+          "cost": 3,
+          "star": 3,
+          "items": [
+            "태양불꽃 망토",
+            "저녁갑주",
+            "워모그의 갑옷"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Nidalee",
+          "name": "니달리",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "무한의 대검",
+            "쇼진의 창",
+            "스테락의 도전"
+          ],
+          "isCarry": false,
           "row": 1
         },
         {
@@ -52,47 +87,12 @@
             "마법사의 최후"
           ],
           "isCarry": true,
-          "row": 2
-        },
-        {
-          "key": "Yorick",
-          "name": "요릭",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "KogMaw",
-          "name": "코그모",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "쇼진의 창",
-            "무한의 대검",
-            "붉은 덩굴정령"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Nidalee",
-          "name": "니달리",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "보석 건틀릿",
-            "타격대의 철퇴"
-          ],
-          "isCarry": false,
-          "row": 3
+          "row": 1
         }
       ],
       "carries": [
-        "마스터 이",
-        "코그모"
+        "렝가",
+        "마스터 이"
       ],
       "augments": [
         "LegionofThrees",
@@ -106,9 +106,9 @@
           "count": 3
         },
         {
-          "key": "Adaptor",
-          "name": "적응가",
-          "count": 3
+          "key": "Brawler",
+          "name": "싸움꾼",
+          "count": 2
         },
         {
           "key": "Juggernaut",
@@ -2313,131 +2313,6 @@
         {
           "key": "Brawler",
           "name": "싸움꾼",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
-    {
-      "id": "b902ac9dfef4b842d585e9e0135e5a509b35e11a",
-      "name": "선봉대 렝가 리롤",
-      "tier": "normal",
-      "teamCost": 87,
-      "units": [
-        {
-          "key": "Rengar",
-          "name": "렝가",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "구인수의 격노검",
-            "거인의 결의",
-            "밤의 끝자락"
-          ],
-          "isCarry": true,
-          "row": 0
-        },
-        {
-          "key": "Hecarim",
-          "name": "헤카림",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "태양불꽃 망토",
-            "저녁갑주",
-            "가고일 돌갑옷"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "AncientSentinel",
-          "name": "감시자",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Diana",
-          "name": "다이애나",
-          "cost": 3,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Brambleback",
-          "name": "덩굴정령",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Taric",
-          "name": "타릭",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Raptor",
-          "name": "어미 부리",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "구인수의 격노검",
-            "크라켄의 분노",
-            "거인 학살자"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Aphelios",
-          "name": "아펠리오스",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "렝가",
-        "어미 부리"
-      ],
-      "augments": [
-        "GachaAddict",
-        "BigGrabBag",
-        "Commander_Ascension"
-      ],
-      "traits": [
-        {
-          "key": "Vanguard",
-          "name": "선봉대",
-          "count": 4
-        },
-        {
-          "key": "Riftbeast",
-          "name": "협곡야수",
-          "count": 3
-        },
-        {
-          "key": "Lunar",
-          "name": "달빛",
-          "count": 2
-        },
-        {
-          "key": "Ravager",
-          "name": "약탈자",
           "count": 2
         }
       ],
