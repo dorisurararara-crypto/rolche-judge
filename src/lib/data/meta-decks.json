@@ -1,8 +1,8 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v18.2 (시즌 18)",
-  "updatedAt": "2026-09-11T21:31:37.395Z",
-  "deckCount": 24,
+  "updatedAt": "2026-09-12T21:09:13.003Z",
+  "deckCount": 25,
   "decks": [
     {
       "id": "2b676d41ee6feee805a31283c116eb212c81a60a",
@@ -288,38 +288,11 @@
       "style": "fast8"
     },
     {
-      "id": "f7cbb31f69f9ca6fa342a2c284691492874fa966",
+      "id": "cd657627c3c0f3c45e25d4796663ff6f68e2e6da",
       "name": "개화 Rush 9",
       "tier": "normal",
-      "teamCost": 108,
+      "teamCost": 90,
       "units": [
-        {
-          "key": "Rammus",
-          "name": "람머스",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Lillia",
-          "name": "릴리아",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Diana",
-          "name": "다이애나",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
         {
           "key": "Sett",
           "name": "세트",
@@ -327,11 +300,38 @@
           "star": 2,
           "items": [
             "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "굳건한 심장"
+            "가고일 돌갑옷",
+            "워모그의 갑옷"
           ],
           "isCarry": false,
           "row": 0
+        },
+        {
+          "key": "Yorick",
+          "name": "요릭",
+          "cost": 1,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Amumu",
+          "name": "아무무",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Kennen",
+          "name": "케넨",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
         },
         {
           "key": "Gnar",
@@ -342,40 +342,27 @@
             "도적의 장갑"
           ],
           "isCarry": false,
-          "row": 1
+          "row": 2
         },
         {
-          "key": "Tristana",
-          "name": "트리스타나",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Ahri",
-          "name": "아리",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "쇼진의 창",
-            "보석 건틀릿",
-            "타격대의 철퇴"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Alune",
-          "name": "알룬",
+          "key": "TheElderDragon",
+          "name": "장로 드래곤",
           "cost": 5,
           "star": 2,
           "items": [
-            "적응형 투구",
-            "대천사의 지팡이",
-            "공허의 지팡이"
+            "무한의 대검",
+            "타격대의 철퇴",
+            "정의의 손길"
           ],
+          "isCarry": true,
+          "row": 2
+        },
+        {
+          "key": "Cinderling",
+          "name": "불타는 묘목",
+          "cost": 1,
+          "star": 2,
+          "items": [],
           "isCarry": false,
           "row": 3
         },
@@ -394,7 +381,7 @@
         }
       ],
       "carries": [
-        "아리",
+        "장로 드래곤",
         "애쉬"
       ],
       "augments": [
@@ -404,23 +391,23 @@
       ],
       "traits": [
         {
-          "key": "Sprykin",
-          "name": "날렵이",
-          "count": 3
-        },
-        {
           "key": "Blossom",
           "name": "개화",
           "count": 3
         },
         {
-          "key": "Defender",
-          "name": "엄호대",
+          "key": "Brawler",
+          "name": "싸움꾼",
           "count": 2
         },
         {
-          "key": "Fae",
-          "name": "요정",
+          "key": "Juggernaut",
+          "name": "전쟁기계",
+          "count": 2
+        },
+        {
+          "key": "Inferno",
+          "name": "지옥불",
           "count": 2
         }
       ],
@@ -1231,7 +1218,7 @@
     },
     {
       "id": "ac567beeb5049dcf724dd6d267a236b51bfe00d5",
-      "name": "개화 밸류",
+      "name": "개화 밸류 v1",
       "tier": "normal",
       "teamCost": 93,
       "units": [
@@ -1361,6 +1348,146 @@
         {
           "key": "Primal",
           "name": "원시",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
+      "style": "fast8"
+    },
+    {
+      "id": "f7cbb31f69f9ca6fa342a2c284691492874fa966",
+      "name": "개화 밸류 v2",
+      "tier": "normal",
+      "teamCost": 108,
+      "units": [
+        {
+          "key": "Rammus",
+          "name": "람머스",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Lillia",
+          "name": "릴리아",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Diana",
+          "name": "다이애나",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Sett",
+          "name": "세트",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "굳건한 심장"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Gnar",
+          "name": "나르",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Tristana",
+          "name": "트리스타나",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Ahri",
+          "name": "아리",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "쇼진의 창",
+            "보석 건틀릿",
+            "타격대의 철퇴"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Alune",
+          "name": "알룬",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "적응형 투구",
+            "대천사의 지팡이",
+            "공허의 지팡이"
+          ],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Ashe",
+          "name": "애쉬",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "최후의 속삭임",
+            "붉은 덩굴정령",
+            "쇼진의 창"
+          ],
+          "isCarry": true,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "아리",
+        "애쉬"
+      ],
+      "augments": [
+        "MaxLevel10",
+        "UpwardMobility",
+        "HedgeFund"
+      ],
+      "traits": [
+        {
+          "key": "Sprykin",
+          "name": "날렵이",
+          "count": 3
+        },
+        {
+          "key": "Blossom",
+          "name": "개화",
+          "count": 3
+        },
+        {
+          "key": "Defender",
+          "name": "엄호대",
+          "count": 2
+        },
+        {
+          "key": "Fae",
+          "name": "요정",
           "count": 2
         }
       ],
