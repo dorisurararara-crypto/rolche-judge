@@ -1,7 +1,7 @@
 {
   "source": "lolchess.gg/meta",
-  "patch": "v18.2b (시즌 18)",
-  "updatedAt": "2026-09-22T21:45:29.641Z",
+  "patch": "v18.3 (시즌 18)",
+  "updatedAt": "2026-09-23T21:59:33.706Z",
   "deckCount": 31,
   "decks": [
     {
@@ -415,135 +415,6 @@
       ],
       "topCost": 5,
       "style": "fast8"
-    },
-    {
-      "id": "cff64403e21c354a5f9aae7523c46984382ac03f",
-      "name": "나무정령 베이가",
-      "tier": "hot",
-      "teamCost": 39,
-      "units": [
-        {
-          "key": "Ornn",
-          "name": "오른",
-          "cost": 1,
-          "star": 3,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "크라운가드"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "StonebarkTree",
-          "name": "돌껍질 나무",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "LeBlanc",
-          "name": "르블랑",
-          "cost": 2,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Lifebloom",
-          "name": "생명꽃",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Veigar",
-          "name": "베이가",
-          "cost": 1,
-          "star": 3,
-          "items": [
-            "푸른 파수꾼",
-            "보석 건틀릿",
-            "새벽심장"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Cassiopeia",
-          "name": "카시오페아",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Fiddlesticks",
-          "name": "피들스틱",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Alistar",
-          "name": "알리스타",
-          "cost": 2,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "RekSai",
-          "name": "렉사이",
-          "cost": 1,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "베이가"
-      ],
-      "augments": [
-        "MoneyHungry",
-        "Commander_RollingForDays",
-        "CyberneticUplink2"
-      ],
-      "traits": [
-        {
-          "key": "Spellweaver",
-          "name": "주문술사",
-          "count": 4
-        },
-        {
-          "key": "Elderwood",
-          "name": "나무정령",
-          "count": 3
-        },
-        {
-          "key": "Defender",
-          "name": "엄호대",
-          "count": 2
-        },
-        {
-          "key": "Eldritch",
-          "name": "검은 가시",
-          "count": 2
-        }
-      ],
-      "topCost": 3,
-      "style": "reroll"
     },
     {
       "id": "301fa9a3daba63f50ac57f4904930721109a3526",
@@ -1934,6 +1805,135 @@
       ],
       "topCost": 5,
       "style": "fast8"
+    },
+    {
+      "id": "cff64403e21c354a5f9aae7523c46984382ac03f",
+      "name": "나무정령 베이가",
+      "tier": "normal",
+      "teamCost": 39,
+      "units": [
+        {
+          "key": "Ornn",
+          "name": "오른",
+          "cost": 1,
+          "star": 3,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "크라운가드"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "StonebarkTree",
+          "name": "돌껍질 나무",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "LeBlanc",
+          "name": "르블랑",
+          "cost": 2,
+          "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Lifebloom",
+          "name": "생명꽃",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Veigar",
+          "name": "베이가",
+          "cost": 1,
+          "star": 3,
+          "items": [
+            "푸른 파수꾼",
+            "보석 건틀릿",
+            "새벽심장"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Cassiopeia",
+          "name": "카시오페아",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Fiddlesticks",
+          "name": "피들스틱",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Alistar",
+          "name": "알리스타",
+          "cost": 2,
+          "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "RekSai",
+          "name": "렉사이",
+          "cost": 1,
+          "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "베이가"
+      ],
+      "augments": [
+        "MoneyHungry",
+        "Commander_RollingForDays",
+        "CyberneticUplink2"
+      ],
+      "traits": [
+        {
+          "key": "Spellweaver",
+          "name": "주문술사",
+          "count": 4
+        },
+        {
+          "key": "Elderwood",
+          "name": "나무정령",
+          "count": 3
+        },
+        {
+          "key": "Defender",
+          "name": "엄호대",
+          "count": 2
+        },
+        {
+          "key": "Eldritch",
+          "name": "검은 가시",
+          "count": 2
+        }
+      ],
+      "topCost": 3,
+      "style": "reroll"
     },
     {
       "id": "4cd8598a1ad5c0e09cde4f2527dcd54d1dfb2968",
