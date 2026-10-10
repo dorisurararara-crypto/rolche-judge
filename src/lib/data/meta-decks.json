@@ -1,7 +1,7 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v18.4b (시즌 18)",
-  "updatedAt": "2026-10-09T23:00:03.679Z",
+  "updatedAt": "2026-10-10T22:11:15.178Z",
   "deckCount": 34,
   "decks": [
     {
@@ -152,131 +152,6 @@
       "style": "fast8"
     },
     {
-      "id": "7365c6b0878f4964c3a99efd02d726196631553d",
-      "name": "람머스 아지르",
-      "tier": "hot",
-      "teamCost": 75,
-      "units": [
-        {
-          "key": "Rammus",
-          "name": "람머스",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "가고일 돌갑옷",
-            "크라운가드",
-            "가고일 돌갑옷"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Fiddlesticks",
-          "name": "피들스틱",
-          "cost": 3,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Teemo",
-          "name": "티모",
-          "cost": 2,
-          "star": 3,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Kennen",
-          "name": "케넨",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "Azir",
-          "name": "아지르",
-          "cost": 3,
-          "star": 3,
-          "items": [
-            "마법공학 총검",
-            "구인수의 격노검",
-            "라바돈의 죽음모자"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Zyra",
-          "name": "자이라",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "공허의 지팡이",
-            "모렐로노미콘",
-            "쇼진의 창"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Soraka",
-          "name": "소라카",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Veigar",
-          "name": "베이가",
-          "cost": 1,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "아지르",
-        "자이라"
-      ],
-      "augments": [
-        "DeadlierCaps",
-        "GachaAddict",
-        "WandOverflow"
-      ],
-      "traits": [
-        {
-          "key": "Sprykin",
-          "name": "날렵이",
-          "count": 3
-        },
-        {
-          "key": "Executioner",
-          "name": "처형자",
-          "count": 3
-        },
-        {
-          "key": "Defender",
-          "name": "엄호대",
-          "count": 2
-        },
-        {
-          "key": "FloraFatalis",
-          "name": "치명적인 꽃",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
-    {
       "id": "f41b5f586885921e234594f6bb0408f6b25c9c78",
       "name": "7협곡야수 장로 드래곤",
       "tier": "hot",
@@ -402,126 +277,124 @@
       "style": "fast8"
     },
     {
-      "id": "64dc7e7863cf1d86a0ebdd92be8bcd2807d5680c",
-      "name": "장로 드래곤 드레이븐",
+      "id": "7365c6b0878f4964c3a99efd02d726196631553d",
+      "name": "람머스 아지르",
       "tier": "hot",
-      "teamCost": 114,
+      "teamCost": 75,
       "units": [
         {
-          "key": "Taric",
-          "name": "타릭",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "AncientSentinel",
-          "name": "감시자",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Amumu",
-          "name": "아무무",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Maokai",
-          "name": "마오카이",
-          "cost": 5,
-          "star": 2,
+          "key": "Rammus",
+          "name": "람머스",
+          "cost": 3,
+          "star": 3,
           "items": [
             "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "정령의 형상"
+            "크라운가드",
+            "가고일 돌갑옷"
           ],
           "isCarry": false,
           "row": 0
+        },
+        {
+          "key": "Fiddlesticks",
+          "name": "피들스틱",
+          "cost": 3,
+          "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "Teemo",
+          "name": "티모",
+          "cost": 2,
+          "star": 3,
+          "items": [],
+          "isCarry": false,
+          "row": 2
         },
         {
           "key": "Kennen",
           "name": "케넨",
           "cost": 5,
           "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
+          "items": [],
           "isCarry": false,
-          "row": 1
+          "row": 2
         },
         {
-          "key": "TheElderDragon",
-          "name": "장로 드래곤",
-          "cost": 5,
-          "star": 2,
+          "key": "Azir",
+          "name": "아지르",
+          "cost": 3,
+          "star": 3,
           "items": [
-            "무한의 대검",
-            "최후의 속삭임",
-            "타격대의 철퇴"
+            "마법공학 총검",
+            "구인수의 격노검",
+            "라바돈의 죽음모자"
           ],
           "isCarry": true,
-          "row": 1
+          "row": 3
         },
         {
-          "key": "Ivern",
-          "name": "아이번",
-          "cost": 5,
+          "key": "Zyra",
+          "name": "자이라",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "공허의 지팡이",
+            "모렐로노미콘",
+            "쇼진의 창"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Soraka",
+          "name": "소라카",
+          "cost": 4,
           "star": 2,
           "items": [],
           "isCarry": false,
           "row": 3
         },
         {
-          "key": "Draven",
-          "name": "드레이븐",
-          "cost": 5,
+          "key": "Veigar",
+          "name": "베이가",
+          "cost": 1,
           "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "크라켄의 분노",
-            "크라켄의 분노"
-          ],
-          "isCarry": true,
+          "items": [],
+          "isCarry": false,
           "row": 3
         }
       ],
       "carries": [
-        "장로 드래곤",
-        "드레이븐"
+        "아지르",
+        "자이라"
       ],
       "augments": [
-        "LateGameScaling",
-        "ExplosiveGrowth",
-        "Commander_Ascension"
+        "DeadlierCaps",
+        "GachaAddict",
+        "WandOverflow"
       ],
       "traits": [
         {
-          "key": "Vanguard",
-          "name": "선봉대",
+          "key": "Sprykin",
+          "name": "날렵이",
+          "count": 3
+        },
+        {
+          "key": "Executioner",
+          "name": "처형자",
+          "count": 3
+        },
+        {
+          "key": "Defender",
+          "name": "엄호대",
           "count": 2
         },
         {
-          "key": "Riftbeast",
-          "name": "협곡야수",
-          "count": 2
-        },
-        {
-          "key": "Inferno",
-          "name": "지옥불",
-          "count": 2
-        },
-        {
-          "key": "Juggernaut",
-          "name": "전쟁기계",
+          "key": "FloraFatalis",
+          "name": "치명적인 꽃",
           "count": 2
         }
       ],
@@ -655,6 +528,289 @@
         }
       ],
       "topCost": 4,
+      "style": "fast8"
+    },
+    {
+      "id": "64dc7e7863cf1d86a0ebdd92be8bcd2807d5680c",
+      "name": "장로 드래곤 드레이븐",
+      "tier": "hot",
+      "teamCost": 114,
+      "units": [
+        {
+          "key": "Taric",
+          "name": "타릭",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "AncientSentinel",
+          "name": "감시자",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Amumu",
+          "name": "아무무",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Maokai",
+          "name": "마오카이",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "정령의 형상"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Kennen",
+          "name": "케넨",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "TheElderDragon",
+          "name": "장로 드래곤",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "무한의 대검",
+            "최후의 속삭임",
+            "타격대의 철퇴"
+          ],
+          "isCarry": true,
+          "row": 1
+        },
+        {
+          "key": "Ivern",
+          "name": "아이번",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Draven",
+          "name": "드레이븐",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "구인수의 격노검",
+            "크라켄의 분노",
+            "크라켄의 분노"
+          ],
+          "isCarry": true,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "장로 드래곤",
+        "드레이븐"
+      ],
+      "augments": [
+        "LateGameScaling",
+        "ExplosiveGrowth",
+        "Commander_Ascension"
+      ],
+      "traits": [
+        {
+          "key": "Vanguard",
+          "name": "선봉대",
+          "count": 2
+        },
+        {
+          "key": "Riftbeast",
+          "name": "협곡야수",
+          "count": 2
+        },
+        {
+          "key": "Inferno",
+          "name": "지옥불",
+          "count": 2
+        },
+        {
+          "key": "Juggernaut",
+          "name": "전쟁기계",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
+      "style": "fast8"
+    },
+    {
+      "id": "9dc355f93a4c34cd201088e62ba00b2e9928df1d",
+      "name": "고밸류 드레이븐",
+      "tier": "normal",
+      "teamCost": 120,
+      "units": [
+        {
+          "key": "StonebarkTree",
+          "name": "돌껍질 나무",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Taric",
+          "name": "타릭",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Amumu",
+          "name": "아무무",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Alistar",
+          "name": "알리스타",
+          "cost": 2,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Maokai",
+          "name": "마오카이",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "정령의 형상"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Kennen",
+          "name": "케넨",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Gnar",
+          "name": "나르",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Draven",
+          "name": "드레이븐",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "구인수의 격노검",
+            "크라켄의 분노",
+            "크라켄의 분노"
+          ],
+          "isCarry": true,
+          "row": 2
+        },
+        {
+          "key": "Ivern",
+          "name": "아이번",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Lifebloom",
+          "name": "생명꽃",
+          "cost": 0,
+          "star": 1,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Ezreal",
+          "name": "이즈리얼",
+          "cost": 4,
+          "star": 2,
+          "items": [
+            "죽음의 검",
+            "최후의 속삭임",
+            "쇼진의 창"
+          ],
+          "isCarry": true,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "드레이븐",
+        "이즈리얼"
+      ],
+      "augments": [
+        "LateGameScaling",
+        "ExplosiveGrowth",
+        "Commander_Ascension"
+      ],
+      "traits": [
+        {
+          "key": "Elderwood",
+          "name": "나무정령",
+          "count": 3
+        },
+        {
+          "key": "Inferno",
+          "name": "지옥불",
+          "count": 2
+        },
+        {
+          "key": "Juggernaut",
+          "name": "전쟁기계",
+          "count": 2
+        },
+        {
+          "key": "Brawler",
+          "name": "싸움꾼",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
       "style": "fast8"
     },
     {
@@ -903,162 +1059,6 @@
           "key": "Invoker",
           "name": "기원자",
           "count": 3
-        },
-        {
-          "key": "Brawler",
-          "name": "싸움꾼",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
-      "style": "fast8"
-    },
-    {
-      "id": "9dc355f93a4c34cd201088e62ba00b2e9928df1d",
-      "name": "고밸류 드레이븐",
-      "tier": "normal",
-      "teamCost": 120,
-      "units": [
-        {
-          "key": "StonebarkTree",
-          "name": "돌껍질 나무",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Taric",
-          "name": "타릭",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Amumu",
-          "name": "아무무",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Alistar",
-          "name": "알리스타",
-          "cost": 2,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Maokai",
-          "name": "마오카이",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "정령의 형상"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Kennen",
-          "name": "케넨",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Gnar",
-          "name": "나르",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Draven",
-          "name": "드레이븐",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "구인수의 격노검",
-            "크라켄의 분노",
-            "크라켄의 분노"
-          ],
-          "isCarry": true,
-          "row": 2
-        },
-        {
-          "key": "Ivern",
-          "name": "아이번",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Lifebloom",
-          "name": "생명꽃",
-          "cost": 0,
-          "star": 1,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Ezreal",
-          "name": "이즈리얼",
-          "cost": 4,
-          "star": 2,
-          "items": [
-            "죽음의 검",
-            "최후의 속삭임",
-            "쇼진의 창"
-          ],
-          "isCarry": true,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "드레이븐",
-        "이즈리얼"
-      ],
-      "augments": [
-        "LateGameScaling",
-        "ExplosiveGrowth",
-        "Commander_Ascension"
-      ],
-      "traits": [
-        {
-          "key": "Elderwood",
-          "name": "나무정령",
-          "count": 3
-        },
-        {
-          "key": "Inferno",
-          "name": "지옥불",
-          "count": 2
-        },
-        {
-          "key": "Juggernaut",
-          "name": "전쟁기계",
-          "count": 2
         },
         {
           "key": "Brawler",
