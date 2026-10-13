@@ -1,7 +1,7 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v18.4b (시즌 18)",
-  "updatedAt": "2026-10-13T01:04:20.264Z",
+  "updatedAt": "2026-10-13T23:10:17.512Z",
   "deckCount": 34,
   "decks": [
     {
@@ -3906,7 +3906,7 @@
     },
     {
       "id": "b07fb3b9701c801ea962b40978a03d2e3024d80d",
-      "name": "[일인자] 카직스 렝가",
+      "name": "경쟁을넘어서 렝가카직스",
       "tier": "normal",
       "teamCost": 66,
       "units": [
