@@ -1,7 +1,7 @@
 {
   "source": "lolchess.gg/meta",
   "patch": "v18.6 (시즌 18)",
-  "updatedAt": "2026-11-08T22:38:10.161Z",
+  "updatedAt": "2026-11-10T01:50:44.132Z",
   "deckCount": 36,
   "decks": [
     {
@@ -1447,6 +1447,142 @@
         }
       ],
       "topCost": 4,
+      "style": "fast8"
+    },
+    {
+      "id": "b21754cfa96db92918a4d94a3720e1060e40366c",
+      "name": "고밸류 알룬",
+      "tier": "normal",
+      "teamCost": 120,
+      "units": [
+        {
+          "key": "Amumu",
+          "name": "아무무",
+          "cost": 4,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Maokai",
+          "name": "마오카이",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "가고일 돌갑옷",
+            "워모그의 갑옷",
+            "크라운가드"
+          ],
+          "isCarry": false,
+          "row": 0
+        },
+        {
+          "key": "Taric",
+          "name": "타릭",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Diana",
+          "name": "다이애나",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Kennen",
+          "name": "케넨",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "도적의 장갑"
+          ],
+          "isCarry": false,
+          "row": 1
+        },
+        {
+          "key": "Fiddlesticks",
+          "name": "피들스틱",
+          "cost": 3,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 2
+        },
+        {
+          "key": "LuxLunar",
+          "name": "럭스 (달빛)",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "쇼진의 창",
+            "라바돈의 죽음모자",
+            "공허의 지팡이"
+          ],
+          "isCarry": true,
+          "row": 3
+        },
+        {
+          "key": "Ivern",
+          "name": "아이번",
+          "cost": 5,
+          "star": 2,
+          "items": [],
+          "isCarry": false,
+          "row": 3
+        },
+        {
+          "key": "Alune",
+          "name": "알룬",
+          "cost": 5,
+          "star": 2,
+          "items": [
+            "푸른 파수꾼",
+            "대천사의 지팡이",
+            "적응형 투구"
+          ],
+          "isCarry": true,
+          "row": 3
+        }
+      ],
+      "carries": [
+        "럭스 (달빛)",
+        "알룬"
+      ],
+      "augments": [
+        "LateGameScaling",
+        "ExplosiveGrowth",
+        "Commander_Ascension"
+      ],
+      "traits": [
+        {
+          "key": "Lunar",
+          "name": "달빛",
+          "count": 3
+        },
+        {
+          "key": "Inferno",
+          "name": "지옥불",
+          "count": 2
+        },
+        {
+          "key": "Juggernaut",
+          "name": "전쟁기계",
+          "count": 2
+        },
+        {
+          "key": "Vanguard",
+          "name": "선봉대",
+          "count": 2
+        }
+      ],
+      "topCost": 5,
       "style": "fast8"
     },
     {
@@ -2945,142 +3081,6 @@
         }
       ],
       "topCost": 4,
-      "style": "fast8"
-    },
-    {
-      "id": "b21754cfa96db92918a4d94a3720e1060e40366c",
-      "name": "고밸류 알룬",
-      "tier": "normal",
-      "teamCost": 120,
-      "units": [
-        {
-          "key": "Amumu",
-          "name": "아무무",
-          "cost": 4,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Maokai",
-          "name": "마오카이",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "가고일 돌갑옷",
-            "워모그의 갑옷",
-            "크라운가드"
-          ],
-          "isCarry": false,
-          "row": 0
-        },
-        {
-          "key": "Taric",
-          "name": "타릭",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Diana",
-          "name": "다이애나",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Kennen",
-          "name": "케넨",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "도적의 장갑"
-          ],
-          "isCarry": false,
-          "row": 1
-        },
-        {
-          "key": "Fiddlesticks",
-          "name": "피들스틱",
-          "cost": 3,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 2
-        },
-        {
-          "key": "LuxLunar",
-          "name": "럭스 (달빛)",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "쇼진의 창",
-            "라바돈의 죽음모자",
-            "공허의 지팡이"
-          ],
-          "isCarry": true,
-          "row": 3
-        },
-        {
-          "key": "Ivern",
-          "name": "아이번",
-          "cost": 5,
-          "star": 2,
-          "items": [],
-          "isCarry": false,
-          "row": 3
-        },
-        {
-          "key": "Alune",
-          "name": "알룬",
-          "cost": 5,
-          "star": 2,
-          "items": [
-            "푸른 파수꾼",
-            "대천사의 지팡이",
-            "적응형 투구"
-          ],
-          "isCarry": true,
-          "row": 3
-        }
-      ],
-      "carries": [
-        "럭스 (달빛)",
-        "알룬"
-      ],
-      "augments": [
-        "LateGameScaling",
-        "ExplosiveGrowth",
-        "Commander_Ascension"
-      ],
-      "traits": [
-        {
-          "key": "Lunar",
-          "name": "달빛",
-          "count": 3
-        },
-        {
-          "key": "Inferno",
-          "name": "지옥불",
-          "count": 2
-        },
-        {
-          "key": "Juggernaut",
-          "name": "전쟁기계",
-          "count": 2
-        },
-        {
-          "key": "Vanguard",
-          "name": "선봉대",
-          "count": 2
-        }
-      ],
-      "topCost": 5,
       "style": "fast8"
     },
     {
